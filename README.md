@@ -31,9 +31,9 @@
   <h3 align="center"> Automatic Manufacturing Design Optimizer</h3>
 
 
-[![LinkedIn][latestrelease-url]][latestrelease-url]
-[![LinkedIn][downloads-shield]][latestrelease-url]
-[![LinkedIn][size-shield]][latestrelease-url]
+[![LatestRelease][latestrelease-url]][latestrelease-url]
+[![Downloads][downloads-shield]][latestrelease-url]
+[![Size][size-shield]][latestrelease-url]
 
 
   <p align="center">
