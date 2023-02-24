@@ -128,7 +128,7 @@ The major programming languages, frameworks/libraries used to bootstrap this pro
    
 
 
-### Installation
+## Installation
 
 
 1. Download [the setup file.](https://anasselhoud.github.io/AMDO/setup.exe)
