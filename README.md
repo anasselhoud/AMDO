@@ -119,11 +119,13 @@ The major programming languages, frameworks/libraries used to bootstrap this pro
 <!-- GETTING STARTED -->
 ## Related Papers
 
+- ### **Swarm Intelligence-Based Framework for Optimized Assembly Line Design: Enhancing Efficiency and Productivity in the Automotive Industry**.
+    El Houd, A., Benoit, P., Painvin L., Bourgeois, J. (2023).  Under submission process. 
+   
 
-- ## **ManufactSim: Manufacturing Line Simulation Using Heterogeneous Distributed Robots**.
-    ```sh
+- ### **ManufactSim: Manufacturing Line Simulation Using Heterogeneous Distributed Robots**.
     Piranda, B., Gautam, I., Meyer, J., El Houd, A., Bourgeois, J. (2022).  In: Barolli, L., Hussain, F., Enokido, T. (eds) Advanced Information Networking and Applications. AINA 2022. Lecture Notes in Networks and Systems, vol 450. Springer, Cham. https://doi.org/10.1007/978-3-030-99587-4_12
-    ```
+   
 
 
 ### Installation
