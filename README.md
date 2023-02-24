@@ -157,15 +157,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- ROADMAP -->
-## Roadmap
+## Developper Guide
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+The developper guide can be requested directly via the link. It contains instructions and information related to the development of the tool, such as coding guidelines, architecture and intergration protocols. 
+This guide will provide you with a comprehensive understanding of the tool's capabilities, limitations and requirements. It also include a reference section with information on the tool's API and data structures, making it easy for the developer to integrate with the tool and build custom extensions. It also include sample code and use cases to help the developer get started. 
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
