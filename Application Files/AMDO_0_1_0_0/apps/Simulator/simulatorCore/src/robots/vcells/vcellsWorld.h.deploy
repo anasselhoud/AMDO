@@ -1,0 +1,82 @@
+/*
+ * VcellsWorld.h
+ *
+ *  Created on: 12 avril 2013
+ *      Author: ben
+ */
+
+#ifndef VCELLSWORLD_H_
+#define VCELLSWORLD_H_
+
+#include "../../gui/openglViewer.h"
+#include "../../base/world.h"
+#include "../../math/vector3D.h"
+#include "vcellsBlock.h"
+#include "../../events/scheduler.h"
+
+namespace Vcells {
+
+static const Vector3D defaultBlockSize{1.0, 1.0, 0.2};
+
+class VcellsWorld : public BaseSimulator::World {
+protected:
+    virtual ~VcellsWorld();
+public:
+    inline static const int numPickingTextures = 5; /* The number of picking textures defined
+                                                       for this type of robot,
+                                                       used to deduce selected Block / face */
+
+    [[maybe_unused]] VcellsWorld(const Cell3DPosition &gridSize, const Vector3D &gridScale,
+                     int argc, char *argv[]);
+
+    GLuint idTextureFloor;
+
+    static void deleteWorld();
+    static VcellsWorld* getWorld() {
+        assert(world != NULL);
+        return((VcellsWorld*)world);
+    }
+
+    void printInfo() {
+        cout << "I'm a Vcells World" << endl;
+    }
+
+/**
+ * Return an ID of the type of current Blocks
+ * @return byte value of Block type from 'replayTags.h' list
+ */
+    ReplayTags::u1 getBlockType() override { return ReplayTags::MODULE_TYPE_VCELLS; };
+
+    virtual void addBlock(bID blockId, BlockCode *(*blockCodeBuildingFunction)(BuildingBlock*),
+                          const Cell3DPosition &pos, const Color &col,
+                          short orientation = 0, bool master = false) override;
+
+    void linkBlock(const Cell3DPosition &pos) override;
+    void loadTextures(const string &str) override;
+    void glDraw() override;
+    void glDrawId() override;
+    void glDrawIdByMaterial() override;
+    void glDrawBackground() override;
+    void setSelectedFace(int n) override;
+    void exportConfiguration() override;
+
+    /**
+         * @brief Set rotation r to glBlock associated with block blc
+         *
+         * @param blc : Block to update
+         * @param r : rotation to set to blc's glBlock
+         */
+    virtual void updateGlData(BuildingBlock *blc, float r);
+    VcellsBlock *findBlockByName(const string &name);
+    void linkBlocks(VcellsBlock* vcb1, VcellsBlock* vcb2, TiXmlElement* actionElement);
+};
+
+inline void deleteWorld() {
+    VcellsWorld::deleteWorld();
+}
+
+inline VcellsWorld* getWorld() { return(VcellsWorld::getWorld()); }
+
+} // Vcells namespace
+
+#endif /* VCELLSWORLD_H_ */

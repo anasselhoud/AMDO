@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="no" ?>
+<!--<visuals windowSize="1600,900" />-->
+<!-- $#61 Colors https://doc.instantreality.org/tools/color_calculator/ -->
+
+<world gridSize="34,14,16" >
+    <camera target="16,6.5,1.0" directionSpherical="0,60,100" angle="15" near="50" far="1000" />
+    <spotlight target="17,6.5,1.0" directionSpherical="0,70,200" angle="10" near="50" far="500" />
+    <blockList>
+        <!-- Workers -->
+        <block type="worker"    id="w1"    position="25,6,5"      currPos="b6"    />
+        <block type="worker"    id="w2"    position="17,6,5"      currPos="se10"   />
+        <!-- VCell1 -->
+        <block type="station"   id="s1"     position="21,13,0"  orientation="0"     color="238,233,231" />
+        <block type="storage"   id="se10"   position="21,8,1"   orientation="0"     color="107,208,137"  leader="true" />
+        <block type="operation" id="op10"   position="19,9,2"                       color="0,100,200"/>
+        <block type="static"    id="sc1"    position="18,7,6"   orientation="0"     color="255,239,255" />
+        <block type="buffer"    id="b1"     position="17,7,1"   orientation="0"     color="107,208,137" />
+        <block type="robot"     id="ro1"    position="17,10,7"  orientation="0"     color="0,200,255" />
+        <block type="station"   id="s2"     position="17,13,0"  orientation="0"     color="238,233,231" />
+        <block type="storage"   id="se20"   position="13,8,1"   orientation="0"     color="107,208,137" />
+        <block type="operation" id="op20"   position="15,9,2"                       color="0,100,200"/>
+        <block type="static"    id="sc2"    position="16,7,6"   orientation="0"     color="255,239,255" />
+        <block type="buffer"   id="b2"     position="12,7,1"   orientation="0"     color="107,208,137" />
+        <!-- VCell2 -->
+        <block type="station"   id="s3"     position="12,13,0"  orientation="0"     color="238,233,231" />
+        <block type="storage"   id="se30"   position="12,8,1"   orientation="0"     color="107,208,137" />
+        <block type="operation" id="op30"   position="10,9,2"                       color="0,100,200"/>
+        <block type="static"    id="sc3"    position="9,7,6"    orientation="0"     color="255,239,255" />
+        <block type="buffer"    id="b3"     position="8,7,1"    orientation="0"     color="107,208,137" />
+        <block type="robot"     id="ro2"    position="8,10,7"   orientation="0"     color="0,200,255" />
+        <block type="station"   id="s4"     position="8,13,0"   orientation="0"     color="238,233,231" />
+        <block type="storage"   id="se40"   position="4,8,1"    orientation="0"     color="107,208,137" />
+        <block type="operation" id="op40"   position="7,9,2"                        color="0,100,200"/>
+        <block type="operation" id="op50"   position="5,9,2"                        color="0,100,200"/>
+        <block type="static"    id="sc4"    position="7,7,6"    orientation="0"     color="255,239,255" />
+        <block type="buffer"    id="b4"     position="4,7,1"    orientation="90"    color="107,208,137" />
+        <!-- Trigger buffer -->
+        <block type="fbuffer"   id="b6"     position="8,5,1"    orientation="0"     color="107,208,137" />
+        <!-- VCell4 -->
+        <block type="station"   id="s7"     position="10,0,0"   orientation="180"   color="238,233,231" />
+        <block type="storage"   id="se70"   position="9,4,1"    orientation="0"     color="107,208,137" />
+        <block type="operation" id="op80"   position="10,3,2"                       color="0,100,200"/>
+        <block type="operation" id="op90"   position="12,3,2"                       color="0,100,200"/>
+        <block type="static"    id="sc7"    position="12,5,6"   orientation="0"     color="255,239,255" />
+        <block type="buffer"    id="b7"     position="13,5,1"   orientation="0"     color="107,208,137" />
+        <block type="robot"     id="ro4"    position="14,2,7"   orientation="180"   color="0,200,255" />
+        <block type="station"   id="s8"     position="14,0,0"   orientation="180"   color="238,233,231" />
+        <block type="storage"   id="se80"   position="17,4,1"   orientation="0"     color="107,208,137" />
+        <block type="operation" id="op100"  position="15,3,2"                       color="0,100,200"/>
+        <block type="static"    id="sc8"    position="14,5,6"   orientation="0"     color="255,239,255" />
+        <block type="buffer"   id="b8"     position="17,5,1"   orientation="0"     color="107,208,137" />
+        <!-- Leaktest -->
+        <block type="station"   id="s9"     position="18,0,0"   orientation="180"   color="238,233,231" />
+        <block type="storage"   id="se90"   position="18,4,1"   orientation="0"     color="107,208,137" />
+        <block type="operation" id="op110"  position="19,3,2"                       color="0,100,200"/>
+        <block type="buffer"   id="b9"     position="20,5,1"   orientation="0"     color="107,208,137" />
+        <!-- Screwing -->
+        <block type="station"   id="s10"    position="21,0,0"   orientation="180"   color="238,233,231" />
+        <block type="storage"   id="se100"  position="21,4,1"   orientation="0"     color="107,208,137" />
+        <block type="operation" id="op120"  position="22,3,2"                       color="0,100,200"/>
+        <block type="buffer"   id="b10"    position="23,5,1"   orientation="0"     color="107,208,137"/>
+        <!-- Final inspection -->
+        <block type="station"   id="s11"    position="24,0,0"   orientation="180"   color="238,233,231" />
+        <block type="operation" id="op130"  position="25,3,2"                       color="0,100,200"/>
+        <block type="buffer"    id="b11"    position="26,5,1"   orientation="0"     color="107,208,137" />
+        <!-- Packaging -->
+        <block type="station"   id="s12"    position="32,5,0"   orientation="270"   color="238,233,231" />
+        <block type="operation" id="op140"  position="28,6,2"                       color="0,100,200"/>
+    </blockList>
+</world>

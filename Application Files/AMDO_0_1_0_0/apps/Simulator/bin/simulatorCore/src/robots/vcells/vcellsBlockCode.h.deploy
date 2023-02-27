@@ -1,0 +1,34 @@
+/*
+ * vcellsBlockCode.h
+ *
+ *  Created on: 23 mars 2013
+ *      Author: ben
+ */
+
+#ifndef VCELLSBLOCKCODE_H_
+#define VCELLSBLOCKCODE_H_
+
+#include "../../base/blockCode.h"
+#include "vcellsBlock.h"
+#include "../../comm/network.h"
+#include "../../events/events.h"
+
+
+using namespace BaseSimulator;
+
+namespace Vcells {
+
+class VcellsBlock;
+
+class VcellsBlockCode : public BlockCode {
+public:
+    VcellsBlockCode(VcellsBlock *host);
+    virtual ~VcellsBlockCode();
+
+    virtual void processLocalEvent(EventPtr pev) override;
+
+};
+
+}
+
+#endif /* VCELLSBLOCKCODE_H_ */

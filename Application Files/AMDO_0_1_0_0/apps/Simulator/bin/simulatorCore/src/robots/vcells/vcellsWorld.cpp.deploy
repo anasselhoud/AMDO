@@ -1,0 +1,226 @@
+/*
+ * vcellsWorld.cpp
+ *
+ *  Created on: 12 avril 2013
+ *      Author: ben
+ *  @modified: ishan
+ */
+
+#include <future> //by ishan
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+
+#include "vcellsWorld.h"
+#include "vcellsBlock.h"
+#include "vcellsGlBlock.h"
+#include "../../utils/configExporter.h"
+#include "../../replay/replayExporter.h"
+
+using namespace std;
+namespace Vcells {
+
+    [[maybe_unused]] VcellsWorld::VcellsWorld(const Cell3DPosition &gridSize, const Vector3D &gridScale,
+                                              int argc, char *argv[]) : World(argc, argv) {
+        cout << TermColor::LifecycleColor << "VcellsWorld constructor" << TermColor::Reset << endl;
+        idTextureFloor = 0;
+        if (GlutContext::GUIisEnabled) {
+            string directory;
+#ifdef WIN32
+            directory = string(ROOT_DIR) + "/simulatorCore/resources/textures/vcellsTextures";
+#else
+            directory = "../../simulatorCore/resources/textures/vcellsTextures";
+#endif
+            objBlock = new ObjLoader::ObjLoader(directory.c_str(), "vcell.obj");
+            objBlockForPicking = new ObjLoader::ObjLoader(directory.c_str(), "vcellPicking.obj");
+#ifdef WIN32
+            directory = string(ROOT_DIR) + "/simulatorCore/resources/textures/latticeTextures";
+#else
+            directory = "../../simulatorCore/resources/textures/latticeTextures";
+#endif
+            objRepere = new ObjLoader::ObjLoader(directory.c_str(), "repere25.obj");
+            loadModels();
+        }
+        lattice = new FreeLattice(gridSize, gridScale.hasZero() ? defaultBlockSize : gridScale);
+    }
+
+    VcellsWorld::~VcellsWorld() {
+        cout << TermColor::LifecycleColor << "VcellsWorld destructor" << TermColor::Reset << endl;
+    }
+
+    void VcellsWorld::deleteWorld() {
+        delete ((VcellsWorld *) world);
+        world = nullptr;
+    }
+
+    void VcellsWorld::addBlock(bID blockId, BlockCodeBuilder bcb,
+                               const Cell3DPosition &pos, const Color &col,
+                               short orientation, bool master) {
+        if (blockId > maxBlockId) maxBlockId = blockId;
+        else if (blockId == 0) blockId = incrementBlockId();
+
+        auto *vc = new VcellsBlock(blockId, bcb);
+        buildingBlocksMap.insert(std::pair<int, BaseSimulator::BuildingBlock *>
+                                         (vc->blockId, (BaseSimulator::BuildingBlock *) vc));
+        getScheduler()->schedule(new CodeStartEvent(getScheduler()->now(), vc));
+
+        auto *glBlock = new VcellsGlBlock(blockId);
+        mapGlBlocks.insert(make_pair(blockId, glBlock));
+        vc->setGlBlock(glBlock);
+        if (ReplayExporter::isReplayEnabled())
+            ReplayExporter::getInstance()->writeAddModule(getScheduler()->now(), blockId);
+        vc->setPosition(pos);
+
+        vc->setOrientation(orientation);
+
+//        vc->setRotation(orientation);
+        vc->setColor(col);
+
+        if (lattice->isInGrid(pos)) {
+            lattice->insert(vc, pos);
+        } else {
+            cerr << "ERROR : BLOCK #" << blockId << " out of the grid !!!!!" << endl;
+            exit(1);
+        }
+    }
+
+    void VcellsWorld::linkBlock(const Cell3DPosition &pos) {
+    }
+
+    void VcellsWorld::glDraw() {
+        glDisable(GL_TEXTURE_2D);
+        lock();
+        BuildingBlock *bb = getSelectedBuildingBlock() ? getSelectedBuildingBlock() : getMap().begin()->second;
+        if (bb) bb->blockCode->onGlDraw();
+
+        for (const auto &pair : mapGlBlocks) {
+            ((VcellsGlBlock *) pair.second)->glDraw(objBlock);
+        }
+        unlock();
+    }
+
+    void VcellsWorld::glDrawIdByMaterial() {
+        glPushMatrix();
+        glDisable(GL_TEXTURE_2D);
+
+        int n;
+        lock();
+        for (const auto &pair : mapGlBlocks) {
+            n = pair.first * numPickingTextures;
+            ((VcellsGlBlock *) pair.second)->glDrawIdByMaterial(objBlockForPicking, n);
+        }
+        unlock();
+        glPopMatrix();
+    }
+
+    void VcellsWorld::glDrawId() {
+        glPushMatrix();
+        lock();
+        for (const auto &pair : mapGlBlocks) {
+            ((VcellsGlBlock *) pair.second)->glDrawId(objBlock, pair.first);
+        }
+        unlock();
+        glPopMatrix();
+    }
+
+    void VcellsWorld::glDrawBackground() {
+        static const GLfloat white[] = {1.0, 1.0, 1.0, 1.0}, gray[] = {0.2, 0.2, 0.2, 1.0};
+
+        glMaterialfv(GL_FRONT, GL_AMBIENT, gray);
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, white);
+        glMaterialfv(GL_FRONT, GL_SPECULAR, gray);
+        glMaterialf(GL_FRONT, GL_SHININESS, 40.0);
+        glPushMatrix();
+        enableTexture(true);
+        glBindTexture(GL_TEXTURE_2D, idTextureFloor);
+        glNormal3f(0, 0, 1.0f);
+        glScalef(lattice->gridSize[0], lattice->gridSize[1], 1.0f);
+        glBegin(GL_QUADS);
+        glTexCoord2f(0, 0);
+        glVertex3f(0.0f, 0.0f, -0.01f);
+        glTexCoord2f(static_cast<float>(lattice->gridSize[0]) / 4.0f,
+                     0); // textureCarre is a used as a 4x4 square texture
+        glVertex3f(1.0f, 0.0f, -0.01f);
+        glTexCoord2f(static_cast<float>(lattice->gridSize[0]) / 4.0f, static_cast<float>(lattice->gridSize[1]) / 4.0f);
+        glVertex3f(1.0, 1.0, -0.01f);
+        glTexCoord2f(0, static_cast<float>(lattice->gridSize[1]) / 4.0f);
+        glVertex3f(0.0, 1.0, -0.01f);
+        glEnd();
+        glPopMatrix();
+        // draw the axes
+        glPushMatrix();
+        glScalef(0.05, 0.05, 0.05);
+        objRepere->glDraw();
+        glPopMatrix();
+    }
+
+    void VcellsWorld::loadTextures(const string &str) {
+        if (GlutContext::GUIisEnabled) {
+            string path = str + "/textureCarre.tga";
+            int lx, ly;
+            idTextureFloor = loadTexture(path.c_str(), lx, ly);
+            cout << path << " -> idTextureFloor: " << idTextureFloor << endl;
+        }
+    }
+
+    void VcellsWorld::setSelectedFace(int n) {
+        /*numSelectedGlBlock = n / numPickingTextures;
+        string name = objBlockForPicking->getObjMtlName(n % numPickingTextures);
+
+        if (name == "Material__72") numSelectedFace = SLattice::South;
+        else if (name == "Material__66") numSelectedFace = SLattice::East;
+        else if (name == "Material__71") numSelectedFace = SLattice::West;
+        else if (name == "Material__68") numSelectedFace = SLattice::North;
+        else {
+            numSelectedFace = 4;  // Top
+        }*/
+    }
+
+    void VcellsWorld::exportConfiguration() {
+        auto exporter = VcellsConfigExporter(this);
+        exporter.exportConfiguration();
+    }
+
+    void VcellsWorld::updateGlData(BuildingBlock *bb, float r) {
+        VcellsGlBlock *glblc = (VcellsGlBlock *) (bb->getGlBlock());
+        if (glblc) {
+            glblc->rotationZ = r;
+        }
+    }
+
+    VcellsBlock *VcellsWorld::findBlockByName(const string &name) {
+        auto it = buildingBlocksMap.begin();
+        while (it != buildingBlocksMap.end() && dynamic_cast<VcellsBlock *>((*it).second)->blockName != name) {
+            it++;
+        }
+        return (it == buildingBlocksMap.end() ? nullptr : dynamic_cast<VcellsBlock *>((*it).second));
+    }
+
+    // $#6
+    void VcellsWorld::linkBlocks(VcellsBlock *vcb1, VcellsBlock *vcb2, TiXmlElement *actionElement) {
+
+        // connect the two interfaces
+        if (vcb1->interfaceMap.find(vcb2->blockName) == vcb1->interfaceMap.end()) {
+            P2PNetworkInterface *p2p1 = vcb1->getFreeInterface();
+            P2PNetworkInterface *p2p2 = vcb2->getFreeInterface();
+
+            //map interface name with its interface
+            vcb1->addToMap(vcb2->blockName, p2p1);
+
+            if (vcb1->blockName != vcb2->blockName)
+                vcb2->addToMap(vcb1->blockName, p2p2);
+            
+            assert(p2p1 != nullptr && p2p2 != nullptr);
+
+            p2p1->connect(p2p2);
+
+        }
+
+        auto p = vcb2->blockName.find_first_of("0123456789");
+        string header = vcb2->blockName.substr(0, p);
+
+        if (header != "w" && header != "s" && actionElement != nullptr)
+            vcb1->addActionsToMap(vcb2->blockName, actionElement); // $#3
+    }
+} // Vcells namespace

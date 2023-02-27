@@ -1,0 +1,135 @@
+#include "vcellsGlBlock.h"
+//#include "../../applicationsSrc/simpleVcell/simpleVcellCode.h"
+
+namespace Vcells {
+
+#ifdef WIN32
+    const string directory = string(ROOT_DIR) + "/simulatorCore/resources/textures/vcellsTextures";
+#else
+    directory = "../../simulatorCore/resources/textures/vcellsTextures";
+#endif
+    ObjLoader::ObjLoader *tabObj[VcellsGlBlock::NB_TYPES];
+    ObjLoader::ObjLoader *tabObjPicking[VcellsGlBlock::NB_TYPES];
+
+    void loadModels() {
+        tabObj[VcellsGlBlock::VCELL_LEFT] = new ObjLoader::ObjLoader(directory.c_str(), "vcellLeft.obj");
+        tabObj[VcellsGlBlock::VCELL_RIGHT] = new ObjLoader::ObjLoader(directory.c_str(), "vcellRight.obj");
+        tabObj[VcellsGlBlock::STATION] = new ObjLoader::ObjLoader(directory.c_str(), "vcell3x5.obj");
+        tabObj[VcellsGlBlock::BUFFER] = new ObjLoader::ObjLoader(directory.c_str(), "vcellStrorage1.obj");
+        tabObj[VcellsGlBlock::OPERATION] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_sphere.obj");
+        tabObj[VcellsGlBlock::STORAGE] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_roundcube.obj");
+        tabObj[VcellsGlBlock::TOOLS] = new ObjLoader::ObjLoader(directory.c_str(), "tools.obj");
+        tabObj[VcellsGlBlock::BUFFER2] = new ObjLoader::ObjLoader(directory.c_str(), "vcellStrorage2.obj");
+        tabObj[VcellsGlBlock::WORKER] = new ObjLoader::ObjLoader(directory.c_str(), "vcellworker.obj");
+        tabObj[VcellsGlBlock::STATIC] = new ObjLoader::ObjLoader(directory.c_str(), "stop.obj");
+        tabObj[VcellsGlBlock::ROBOT] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_robot.obj");
+        tabObj[VcellsGlBlock::ROBOTFLAG] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_sphere.obj");
+        tabObj[VcellsGlBlock::UNKNOWN] = new ObjLoader::ObjLoader(directory.c_str(), "unknown.obj");
+        tabObjPicking[VcellsGlBlock::VCELL_LEFT] = new ObjLoader::ObjLoader(directory.c_str(), "vcellLeftPicking.obj");
+        tabObjPicking[VcellsGlBlock::VCELL_RIGHT] = new ObjLoader::ObjLoader(directory.c_str(), "vcellRightPicking.obj");
+        tabObjPicking[VcellsGlBlock::STATION] = new ObjLoader::ObjLoader(directory.c_str(), "vcell3x5.obj");
+        tabObjPicking[VcellsGlBlock::BUFFER] = new ObjLoader::ObjLoader(directory.c_str(), "vcellStrorage1.obj");
+        tabObjPicking[VcellsGlBlock::OPERATION] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_sphere.obj");
+        tabObjPicking[VcellsGlBlock::STORAGE] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_roundcube.obj");
+        tabObjPicking[VcellsGlBlock::TOOLS] = new ObjLoader::ObjLoader(directory.c_str(), "tools.obj");
+        tabObjPicking[VcellsGlBlock::BUFFER2] = new ObjLoader::ObjLoader(directory.c_str(), "vcellStrorage2.obj");
+        tabObjPicking[VcellsGlBlock::WORKER] = new ObjLoader::ObjLoader(directory.c_str(), "vcellworker.obj");
+        tabObjPicking[VcellsGlBlock::STATIC] = new ObjLoader::ObjLoader(directory.c_str(), "stop.obj");
+        tabObjPicking[VcellsGlBlock::ROBOT] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_robot.obj");
+        tabObjPicking[VcellsGlBlock::ROBOTFLAG] = new ObjLoader::ObjLoader(directory.c_str(), "vcell_sphere.obj");
+        tabObjPicking[VcellsGlBlock::UNKNOWN] = new ObjLoader::ObjLoader(directory.c_str(), "unknown.obj");
+    }
+
+    void VcellsGlBlock::glDraw(ObjLoader::ObjLoader *ptrObj) {
+        glPushMatrix();
+        glTranslatef(position[0], position[1], position[2]);
+        if (isHighlighted) {
+            GLfloat n = 0.5 + 1.5 * (1.0 - (glutGet(GLUT_ELAPSED_TIME) % 1000) / 1000.0);
+            GLfloat c[4];
+            c[0] = color[0] * n;
+            c[1] = color[1] * n;
+            c[2] = color[2] * n;
+            c[3] = 1.0;
+            tabObj[modelType]->setLightedColor(c);
+        } else {
+            tabObj[modelType]->setLightedColor(color);
+        }
+//        glRotatef(rotationZ,0.0f,0.0f,1.0f);
+        glRotatef(orientationZ,0.0f,0.0f,1.0f);
+
+        if  (modelType==WORKER){
+            glPushMatrix();
+            glScalef(0.6,0.6,0.6);
+            tabObj[modelType]->glDraw();
+            glPopMatrix();
+        } else if (modelType==STATIC){
+            glPushMatrix();
+            glScalef(0.1,0.1,0.1);
+            tabObj[modelType]->glDraw();
+            glPopMatrix();
+        }
+        else {
+            tabObj[modelType]->glDraw();
+        }
+//        tabObj[modelType]->glDraw(); // if modelType = mytype
+
+        if (!tabLines.empty()) {
+            glDisable(GL_TEXTURE_2D);
+
+            glColorMaterial ( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE ); // in order to color the links, set color materials
+            glEnable ( GL_COLOR_MATERIAL ); // enable the color material
+
+            glLineWidth(5); // increase the width of the line to be 5
+            glBegin(GL_LINES); // draw the links
+            glColor3f(0.5,0.0,0.0); // set the color of the links to be green
+
+            for (auto p:tabLines) {
+                glVertex3f(0, 0, 0);
+                glVertex3dv(p.pt);
+            }
+            glEnd();
+            glLineWidth(1);
+        }
+        glPopMatrix();
+
+        glDisable( GL_COLOR_MATERIAL ); // disable the color material
+    }
+
+    string VcellsGlBlock::getPopupInfo() {
+        string out = to_string(blockId) + " - (" + to_string((int) (position[0])) +
+                     "," + to_string((int) (position[1])) + "," + to_string((int) (position[2])) +")\n";
+        return out;
+    }
+
+    void VcellsGlBlock::glDrawId(ObjLoader::ObjLoader *ptrObj, int n) {
+        glPushMatrix();
+        glTranslatef(position[0], position[1], position[2]);
+//        glRotatef(rotationZ,0.0f,0.0f,1.0f);
+        glRotatef(orientationZ,0.0f,0.0f,1.0f);
+        if  (modelType==WORKER){
+            glPushMatrix();
+            glScalef(0.6,0.6,0.6);
+            tabObjPicking[modelType]->glDrawId(n);
+            glPopMatrix();
+        } else if (modelType==STATIC){
+            glPushMatrix();
+            glScalef(0.1,0.1,0.1);
+            tabObjPicking[modelType]->glDrawId(n);
+            glPopMatrix();
+        }
+        else {
+            tabObjPicking[modelType]->glDrawId(n);
+        }
+//        tabObjPicking[modelType]->glDrawId(n);
+        glPopMatrix();
+    }
+
+    void VcellsGlBlock::glDrawIdByMaterial(ObjLoader::ObjLoader *ptrObj, int &n) {
+        glPushMatrix();
+        glTranslatef(position[0], position[1], position[2]);
+//        glRotatef(rotationZ,0.0f,0.0f,1.0f);
+        glRotatef(orientationZ,0.0f,0.0f,1.0f);
+        tabObj[modelType]->glDrawIdByMaterial(n);
+        glPopMatrix();
+    }
+}

@@ -1,0 +1,26 @@
+<settings>
+    <template path="./input/layout/HR16_4Vcell_4eol_4operators_4_dynamic.xml" />
+
+
+ <scenario path="./input/scenarios/scenario_20220614-153447.xml" /> 
+
+
+    <output path="./output/" />
+    <simTarget name="dailyVolume" />
+    <speed value="999" />
+    <doc url="https://google.com" />
+    <delta enable="true">
+        <action name="Loading" value="6.67" />
+        <action name="Unloading" value="6.67" />
+    </delta>
+    <stability range="1" rangeDelta="2" />
+    
+    <colors>
+        <color entity="station" R="238" G="233" B="231" />
+        <color entity="storage" R="218" G="170" B="219" />
+        <color entity="operation" R="255" G="178" B="125" />
+        <color entity="buffer" R="107" G="208" B="137" />
+        <color entity="fbuffer_empty" R="255" G="192" B="0" />
+        <color entity="fbuffer_full" R="107" G="208" B="137" />
+    </colors>
+</settings>

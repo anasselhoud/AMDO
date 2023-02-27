@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workplan name="HR18" timestamp="2022-09-13-13-31-46">
+	<ebom>
+		<parts>
+			<part id="Loading00052307" cycleTime="4.68" weight="0.396" thumb="0001.png" name="BRIDE_QUEUE_ARONDE"/>
+			<part id="Loading00000075_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.219" thumb="0002.png" name="INLET_CONE_LOWER_HALF_SHELL.1"/>
+			<part id="Loading00000066_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.08" thumb="0003.png" name="INLET_CONE_UPPER_HALF_SHELL.1"/>
+			<part id="Loading00000063_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.02" thumb="0004.png" name="TEMPERATURE BOSS.2"/>
+			<part id="Loading00000076_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.019" thumb="0005.png" name="LAMBDA BOSS.2"/>
+			<part id="Loading00000072_3E38142C-0000-4098-61FBAD6000042884" cycleTime="3.78" weight="1.675" thumb="0006.png" name="CANNING"/>
+			<part id="Loading00000079_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.071" thumb="0007.png" name="PONTET_BEQUILLE_CANNING.1"/>
+			<part id="Loading00000069_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.035" thumb="0008.png" name="EGR Bracket.1"/>
+			<part id="Loading00000067_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.218" thumb="0009.png" name="From-3706685-STEP4"/>
+			<part id="Loading00000074_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.189" thumb="0010.png" name="From-3706684-STEP4"/>
+			<part id="Loading00000065_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.147" thumb="0011.png" name="PROPOSITION_PIQUAGE_EGR_VERSION_4.1"/>
+			<part id="Loading00000081_3E38142C-0000-4098-61FBAD6000042884" cycleTime="4.68" weight="0.019" thumb="0012.png" name="LAMBDA BOSS.1"/>
+			<part id="Loading00052513" cycleTime="4.68" weight="0.089" thumb="0013.png" name="BICONE_SORTIE.1"/>
+			<part id="Loading00050883" cycleTime="3.44" weight="0.04" thumb="0027.png" name="MIDDLE ENGINE BRACKET"/>
+			<part id="Loading00050884" cycleTime="3.44" weight="0.046" thumb="0028.png" name="BOTTOM ENGINE BRACKET"/>
+			<part id="Loading00050887" cycleTime="5" weight="0" thumb="0029.png" name=""/>
+			<part id="Loading00050888" cycleTime="5" weight="0" thumb="0030.png" name=""/>
+		</parts>
+		<weldings>
+			<group id="1" cycleTime="xyz" link="Loading00008638">
+			<welding id="Machine00000052_3E38142C-0000-4098-61FBAD6000042884" cycleTime="17.4" weight="0.476" thumb="0014.png" name="Weld_01" length="0.195" type="Mag M-Circ Int B" assy="Loading00000066_3E38142C-0000-4098-61FBAD6000042884;Loading00052307" precedency="" />
+			<welding id="Machine00000059_3E38142C-0000-4098-61FBAD6000042884" cycleTime="15.8371" weight="2.37" thumb="0015.png" name="Weld_02" length="0.191" type="Mag Lin B" assy="Loading00000066_3E38142C-0000-4098-61FBAD6000042884;Loading00000075_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000044_3E38142C-0000-4098-61FBAD6000042884" cycleTime="5.65" weight="2.39" thumb="0016.png" name="Weld_03" length="0.025" type="Mag Lin T" assy="Loading00000075_3E38142C-0000-4098-61FBAD6000042884;Loading00000063_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000058_3E38142C-0000-4098-61FBAD6000042884" cycleTime="6.35" weight="3.157" thumb="0017.png" name="Weld_04" length="0.039" type="Mag Lin T" assy="Loading00000076_3E38142C-0000-4098-61FBAD6000042884;Loading00000075_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000051_3E38142C-0000-4098-61FBAD6000042884" cycleTime="22.7" weight="2.37" thumb="0018.png" name="Weld_05" length="0.43" type="Mag Lin T" assy="Loading00000072_3E38142C-0000-4098-61FBAD6000042884;Loading00000066_3E38142C-0000-4098-61FBAD6000042884;Loading00000075_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000056_3E38142C-0000-4098-61FBAD6000042884" cycleTime="7.4" weight="3.067" thumb="0019.png" name="Weld_06" length="0.06" type="Mag Lin T" assy="Loading00000069_3E38142C-0000-4098-61FBAD6000042884;Loading00000072_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000043_3E38142C-0000-4098-61FBAD6000042884" cycleTime="8.2" weight="3.138" thumb="0020.png" name="Weld_07" length="0.076" type="Mag Lin T" assy="Loading00000072_3E38142C-0000-4098-61FBAD6000042884;Loading00000079_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000054_3E38142C-0000-4098-61FBAD6000042884" cycleTime="22.7" weight="3.013" thumb="0021.png" name="Weld_08" length="0.43" type="Mag Lin T" assy="Loading00000067_3E38142C-0000-4098-61FBAD6000042884;Loading00000072_3E38142C-0000-4098-61FBAD6000042884;Loading00000074_3E38142C-0000-4098-61FBAD6000042884" precedency="Machine00000052_3E38142C-0000-4098-61FBAD6000042884;Machine00000059_3E38142C-0000-4098-61FBAD6000042884;Machine00000044_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000050_3E38142C-0000-4098-61FBAD6000042884" cycleTime="11.7" weight="3.013" thumb="0022.png" name="Weld_09" length="0.21" type="Mag Lin T" assy="Loading00000067_3E38142C-0000-4098-61FBAD6000042884;Loading00000074_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000055_3E38142C-0000-4098-61FBAD6000042884" cycleTime="3.05" weight="3.013" thumb="0023.png" name="Weld_10" length="0.037" type="Mag Lin T" assy="Loading00000072_3E38142C-0000-4098-61FBAD6000042884;Loading00000074_3E38142C-0000-4098-61FBAD6000042884;Loading00000067_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000049_3E38142C-0000-4098-61FBAD6000042884" cycleTime="6.35" weight="3.032" thumb="0024.png" name="Weld_11" length="0.039" type="Mag Lin T" assy="Loading00000081_3E38142C-0000-4098-61FBAD6000042884;Loading00000067_3E38142C-0000-4098-61FBAD6000042884" precedency="Machine00000054_3E38142C-0000-4098-61FBAD6000042884"/>
+			<welding id="Machine00000057_3E38142C-0000-4098-61FBAD6000042884" cycleTime="8.6" weight="0.643" thumb="0025.png" name="Weld_12" length="0.084" type="Mag Lin T" assy="Loading00000074_3E38142C-0000-4098-61FBAD6000042884;Loading00000067_3E38142C-0000-4098-61FBAD6000042884;Loading00052513" precedency="Machine00000052_3E38142C-0000-4098-61FBAD6000042884;Machine00000059_3E38142C-0000-4098-61FBAD6000042884;Machine00000044_3E38142C-0000-4098-61FBAD6000042884;Machine00000054_3E38142C-0000-4098-61FBAD6000042884;
+			Machine00000050_3E38142C-0000-4098-61FBAD6000042884;Machine00000055_3E38142C-0000-4098-61FBAD6000042884" />
+			<welding id="Machine00000045_3E38142C-0000-4098-61FBAD6000042884" cycleTime="8.8" weight="0.365" thumb="0026.png" name="Weld_13" length="0.088" type="Mag Lin T" assy="Loading00000067_3E38142C-0000-4098-61FBAD6000042884;Loading00000065_3E38142C-0000-4098-61FBAD6000042884" precedency="Machine00000052_3E38142C-0000-4098-61FBAD6000042884;Machine00000059_3E38142C-0000-4098-61FBAD6000042884;Machine00000044_3E38142C-0000-4098-61FBAD6000042884;Machine00000054_3E38142C-0000-4098-61FBAD6000042884;
+			Machine00000050_3E38142C-0000-4098-61FBAD6000042884;Machine00000055_3E38142C-0000-4098-61FBAD6000042884" />
+			</group>
+		</weldings>
+		<non_weldings>
+			<non_welding id="Machine00034172" cycleTime="20.00000" weight="0.000" thumb="0032.png" name="" length="0.000" type="HS - Crimping" forbidden="" assy="Loading00050887;Loading00050888" precedency="" />
+			<non_welding id="Operator00020241" cycleTime="10" weight="" thumb="0031.png" name="Screwing-Operator00020241 (Operator00020241.1)" length="0.000" type="Screwing" forbidden="" assy="Loading00050883;Loading00050884" precedency="" />
+		</non_weldings>
+	</ebom>
+</workplan>

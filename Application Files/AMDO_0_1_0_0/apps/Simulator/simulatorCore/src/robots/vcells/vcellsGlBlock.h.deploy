@@ -1,0 +1,37 @@
+/*
+ * vcellsGlBlock.h
+ *
+ *  Created on: 23 avr. 2013
+ *      Author: ben
+ */
+
+#ifndef VCELLSGLBLOCK_H_
+#define VCELLSGLBLOCK_H_
+#include <string>
+#include "../../gui/objLoader.h"
+#include "../../base/glBlock.h"
+
+namespace Vcells {
+
+    void loadModels();
+
+    class VcellsGlBlock:public GlBlock {
+public :
+    enum ModelTypes {VCELL_LEFT = 0, VCELL_RIGHT, STATION, BUFFER, OPERATION, STORAGE, TOOLS, BUFFER2, WORKER, STATIC, ROBOT, ROBOTFLAG, UNKNOWN,NB_TYPES};
+    ModelTypes modelType;
+    uint16_t displayedValue;
+    static const uint16_t noDisplay=1000;
+    float rotationZ;
+    vector<Vector3D> tabLines;
+
+    VcellsGlBlock(bID id) : GlBlock(id), displayedValue(noDisplay), modelType(UNKNOWN) { orientationZ=0; rotationZ=orientationZ; };
+    virtual ~VcellsGlBlock() {};
+
+    string getPopupInfo() override;
+    void setDisplayedValue(uint16_t n) { displayedValue=n; }
+    void glDraw(ObjLoader::ObjLoader *ptrObj) override;
+    virtual void glDrawId(ObjLoader::ObjLoader *ptrObj,int n) override;
+    virtual void glDrawIdByMaterial(ObjLoader::ObjLoader *ptrObj,int &n) override;
+};
+}
+#endif /* VCELLSGLBLOCK_H_ */

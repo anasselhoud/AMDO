@@ -1,0 +1,49 @@
+/*
+ * vcellsSimulator.h
+ *
+ *  Created on: 23 mars 2013
+ *      Author: dom
+ */
+
+#ifndef VCELLSSIMULATOR_H_
+#define VCELLSSIMULATOR_H_
+
+#include "vcellsWorld.h"
+#include "../../base/simulator.h"
+#include "vcellsBlock.h"
+#include "vcellsBlockCode.h"
+
+using namespace std;
+
+namespace Vcells {
+
+class VcellsSimulator : public BaseSimulator::Simulator {
+protected:
+    VcellsSimulator(int argc, char *argv[], BlockCodeBuilder bcb);
+    virtual ~VcellsSimulator();
+
+public:
+    static void createSimulator(int argc, char *argv[], BlockCodeBuilder bcb);
+
+    static VcellsSimulator* getSimulator() {
+        assert(simulator != NULL);
+        return((VcellsSimulator*)simulator);
+    }
+
+    virtual void loadWorld(const Cell3DPosition &gridSize, const Vector3D &gridScale,
+                           int argc, char *argv[]) override;
+    virtual void loadBlock(TiXmlElement *blockElt, bID blockId, BlockCodeBuilder bcb,
+                           const Cell3DPosition &pos, const Color &color, bool master) override;
+    virtual void parseLinks() override;
+    virtual void printInfo() override { cout << "I'm a VcellsSimulator" << endl; }
+};
+
+inline void createSimulator(int argc, char *argv[], BlockCodeBuilder bcb) {
+    VcellsSimulator::createSimulator(argc, argv, bcb);
+}
+
+inline VcellsSimulator* getSimulator() { return(VcellsSimulator::getSimulator()); }
+
+} // Vcells namespace
+
+#endif /* VCELLSSIMULATOR_H_ */

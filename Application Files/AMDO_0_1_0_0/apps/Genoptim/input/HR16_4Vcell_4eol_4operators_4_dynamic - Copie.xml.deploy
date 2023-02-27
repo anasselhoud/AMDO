@@ -1,0 +1,113 @@
+<?xml version="1.0" standalone="no" ?>
+<!--<visuals windowSize="1600,900" />-->
+<!-- $#61 Colors https://doc.instantreality.org/tools/color_calculator/ -->
+
+<world gridSize="34,14,16" >
+<camera target="16,6.5,1.0" directionSpherical="0,60,100" angle="15" near="50" far="1000" />
+<spotlight target="17,6.5,1.0" directionSpherical="0,70,200" angle="10" near="50" far="500" />
+<blockList>
+    <!-- Workers -->
+    <block type="worker"    id="w1"     position="25,6,5"      currPos="b10"    />
+    <block type="worker"    id="w2"     position="17,6,5"      currPos="se10"   />
+    <block type="worker"    id="w3"     position="11,6,5"      currPos="b1"     />
+    <block type="worker"    id="w4"     position="2,6,5"       currPos="b3"     />
+    <!-- VCell1 -->
+    <block type="station"   id="s1"     position="21,13,0"  orientation="0"     color="238,233,231" equ="1" name="welding"/>
+    <block type="storage"   id="se10"   position="21,8,1"   orientation="0"     color="107,208,137" equ="1" sta="s1" leader="true" />
+    <block type="operation" id="op011"   position="20,9,2"                       color="0,100,200" equ="1" sta="s1" status="inactive"/>
+    <block type="operation" id="op012"   position="19,9,2"                       color="0,100,200" equ="1" sta="s1" status="active"/>
+    <block type="operation" id="op013"   position="18,9,2"                       color="0,100,200" equ="1" sta="s1" status="inactive"/>
+    <block type="static"    id="sc1"    position="18,7,6"   orientation="0"     color="255,239,255" equ="1" sta="s1"/>
+    <block type="fbuffer"    id="b1"     position="17,7,1"   orientation="0"     color="107,208,137" equ="1" sta="s1"/>
+    <block type="robot"     id="ro1"    position="17,10,7"  orientation="0"     color="0,200,255" equ="1" />
+    <block type="station"   id="s2"     position="17,13,0"  orientation="0"     color="238,233,231" equ="1" name="welding"/>
+    <block type="storage"   id="se20"   position="13,8,1"   orientation="0"     color="107,208,137" equ="1" sta="s2"/>
+    <block type="operation" id="op021"   position="16,9,2"                       color="0,100,200" equ="1" sta="s2" status="inactive"/>
+    <block type="operation" id="op022"   position="15,9,2"                       color="0,100,200" equ="1" sta="s2" status="active"/>
+    <block type="operation" id="op023"   position="14,9,2"                       color="0,100,200" equ="1" sta="s2" status="inactive"/>
+    <block type="static"    id="sc2"    position="16,7,6"   orientation="0"     color="255,239,255" equ="1" sta="s2" />
+    <!-- Trigger fbuffer -->
+    <block type="fbuffer"   id="b2"     position="13,7,1"   orientation="0"     color="107,208,137" equ="" sta="s2"/>
+    <!-- VCell2 -->
+    <block type="station"   id="s3"     position="12,13,0"  orientation="0"     color="238,233,231" equ="2" name="welding"  />
+    <block type="storage"   id="se30"   position="12,8,1"   orientation="0"     color="107,208,137" equ="2" sta="s3"/>
+    <block type="operation" id="op031"   position="11,9,2"                       color="0,100,200" equ="2" sta="s3" status="active"/>
+    <block type="operation" id="op032"   position="10,9,2"                       color="0,100,200" equ="2" sta="s3" status="inactive"/>
+    <block type="operation" id="op033"   position="9,9,2"                       color="0,100,200" equ="2" sta="s3" status="active"/>
+    <block type="static"    id="sc3"    position="9,7,6"    orientation="0"     color="255,239,255" equ="2" sta="s3"/>
+    <block type="fbuffer"    id="b3"     position="8,7,1"    orientation="0"     color="107,208,137" equ="2" sta="s3"/>
+    <block type="robot"     id="ro2"    position="8,10,7"   orientation="0"     color="0,200,255" equ="2"/>
+    <block type="station"   id="s4"     position="8,13,0"   orientation="0"     color="238,233,231" equ="2" name="welding"/>
+    <block type="storage"   id="se40"   position="4,8,1"    orientation="0"     color="107,208,137" equ="2" sta="s4"/>
+    <block type="operation" id="op041"   position="7,9,2"                        color="0,100,200" equ="2" sta="s4" status="active"/>
+    <block type="operation" id="op042"   position="6,9,2"                        color="0,100,200" equ="2" sta="s4" status="inactive"/>
+    <block type="operation" id="op043"   position="5,9,2"                        color="0,100,200" equ="2" sta="s4" status="active"/>
+    <block type="static"    id="sc4"    position="7,7,6"    orientation="0"     color="255,239,255" equ="2" sta="s4" />
+    <block type="fbuffer"    id="b4"     position="5,7,1"    orientation="90"    color="107,208,137" equ="" sta="s4"/>
+    <!--VCell3-->
+    <block type="station"   id="s5"     position="1,0,0"    orientation="180"   color="238,233,231" equ="3" name="welding"/>
+    <block type="storage"   id="se50"   position="0,4,1"    orientation="0"     color="107,208,137" equ="3" sta="s5"/>
+    <block type="operation" id="op051"   position="1,3,2"                        color="0,100,200" equ="3" sta="s5" status="inactive"/>
+    <block type="operation" id="op052"   position="2,3,2"                        color="0,100,200" equ="3" sta="s5" status="active"/>
+    <block type="operation" id="op053"   position="3,3,2"                        color="0,100,200" equ="3" sta="s5" status="inactive"/>
+    <block type="static"    id="sc5"    position="3,5,6"    orientation="0"     color="255,239,255" equ="3" sta="s5"/>
+    <block type="fbuffer"    id="b5"     position="4,5,1"    orientation="0"     color="107,208,137" equ="3" sta="s5" />
+    <block type="robot"     id="ro3"    position="5,3,7"    orientation="180"   color="0,200,255" equ="3" />
+    <block type="station"   id="s6"     position="5,0,0"    orientation="180"   color="238,233,231" equ="3" name="welding" />
+    <block type="storage"   id="se60"   position="8,4,1"    orientation="0"     color="107,208,137"  equ="3" sta="s6"/>
+    <block type="operation" id="op061"   position="5,3,2"                        color="0,100,200" equ="3" sta="s6" status="inactive"/>
+    <block type="operation" id="op062"   position="6,3,2"                        color="0,100,200" equ="3" sta="s6" status="active"/>
+    <block type="operation" id="op063"   position="7,3,2"                        color="0,100,200" equ="3" sta="s6" status="inactive"/>
+    <block type="static"    id="sc6"    position="5,5,6"    orientation="0"     color="255,239,255" equ="3"  sta="s6"/>
+    <!-- Trigger fbuffer -->
+    <block type="fbuffer"   id="b6"     position="8,5,1"    orientation="0"     color="107,208,137" equ="" sta="s6"/>
+    <!-- VCell4 -->
+    <block type="station"   id="s7"     position="10,0,0"   orientation="180"   color="238,233,231" equ="4" name="welding" />
+    <block type="storage"   id="se70"   position="9,4,1"    orientation="0"     color="107,208,137" equ="4" sta="s7" />
+    <block type="operation" id="op071"   position="10,3,2"                       color="0,100,200" equ="4" sta="s7" status="active"/>
+    <block type="operation" id="op072"   position="11,3,2"                       color="0,100,200" equ="4" sta="s7" status="inactive"/>
+    <block type="operation" id="op073"   position="12,3,2"                       color="0,100,200" equ="4" sta="s7" status="active"/>
+    <block type="static"    id="sc7"    position="12,5,6"   orientation="0"     color="255,239,255" equ="4" sta="s7" />
+    <block type="fbuffer"    id="b7"     position="13,5,1"   orientation="0"     color="107,208,137" equ="4" sta="s7" />
+    <block type="robot"     id="ro4"    position="14,2,7"   orientation="180"   color="0,200,255" equ="4" />
+    <block type="station"   id="s8"     position="14,0,0"   orientation="180"   color="238,233,231"  equ="4" name="welding"/>
+    <block type="storage"   id="se80"   position="17,4,1"   orientation="0"     color="107,208,137" equ="4" sta="s8"/>
+    <block type="operation" id="op081"  position="14,3,2"                       color="0,100,200" equ="4" sta="s8" status="inactive"/>
+    <block type="operation" id="op082"  position="15,3,2"                       color="0,100,200" equ="4" sta="s8" status="active"/>
+    <block type="operation" id="op083"  position="16,3,2"                       color="0,100,200" equ="4" sta="s8" status="inactive"/>
+    <block type="static"    id="sc8"    position="14,5,6"   orientation="0"     color="255,239,255" equ="4" sta="s8"/>
+    <!-- Trigger fbuffer -->
+    <block type="fbuffer"   id="b8"     position="17,5,1"   orientation="0"     color="107,208,137" equ="" sta="s8"/>
+    <!-- Leaktest -->
+    <block type="station"   id="s9"     position="18,0,0"   orientation="180"   color="238,233,231" equ="0" name="leaktest"/>
+    <block type="storage"   id="se90"   position="18,4,1"   orientation="0"     color="107,208,137" equ="0" sta="s9"/>
+    <block type="operation" id="op091"  position="18,3,2"                       color="0,100,200" equ="0" sta="s9" status="inactive"/>
+    <block type="operation" id="op092"  position="19,3,2"                       color="0,100,200" equ="0" sta="s9" status="active"/>
+    <block type="operation" id="op093"  position="20,3,2"                       color="0,100,200" equ="0" sta="s9" status="inactive"/>
+    <!-- Trigger fbuffer -->
+    <block type="fbuffer"   id="b9"     position="21,5,1"   orientation="0"     color="107,208,137" equ="" sta="s9"/>
+    <!-- Screwing -->
+    <block type="station"   id="s10"    position="21,0,0"   orientation="180"   color="238,233,231" equ="0" name="screwing" />
+    <block type="storage"   id="se100"  position="21,4,1"   orientation="0"     color="107,208,137" equ="0" sta="s10"/>
+    <block type="operation" id="op101"  position="21,3,2"                       color="0,100,200" equ="0" sta="s10" status="inactive"/>
+    <block type="operation" id="op102"  position="22,3,2"                       color="0,100,200" equ="0" sta="s10" status="active"/>
+    <block type="operation" id="op103"  position="23,3,2"                       color="0,100,200" equ="0" sta="s10" status="inactive"/>
+    <!-- Trigger fbuffer -->
+    <block type="fbuffer"   id="b10"    position="24,5,1"   orientation="0"     color="107,208,137" equ="" sta="s10"/>
+    <!-- Final inspection -->
+    <block type="station"   id="s11"    position="24,0,0"   orientation="180"   color="238,233,231" equ="0" name="finalinspection"/>
+    <block type="storage"   id="se110"  position="24,4,1"   orientation="0"     color="107,208,137" equ="0" sta="s11"/>
+    <block type="operation" id="op111"  position="24,3,2"                       color="0,100,200" equ="0" sta="s11" status="inactive"/>
+    <block type="operation" id="op112"  position="25,3,2"                       color="0,100,200" equ="0" sta="s11" status="active"/>
+    <block type="operation" id="op113"  position="26,3,2"                       color="0,100,200" equ="0" sta="s11" status="inactive"/>
+    <block type="fbuffer"    id="b11"    position="27,5,1"   orientation="0"     color="107,208,137" equ="" sta="s11"/>
+    <!-- Packaging -->
+    <block type="station"   id="s12"    position="33,5,0"   orientation="270"   color="238,233,231" equ="0" name="packaging" />
+    <block type="storage"   id="se120"  position="28,5,1"   orientation="0"     color="107,208,137" equ="0" sta="s12"/>
+    <block type="operation" id="op121"  position="29,5,2"                       color="0,100,200" equ="0" sta="s12" status="inactive"/>
+    <block type="operation" id="op122"  position="29,6,2"                       color="0,100,200" equ="0" sta="s12" status="active"/>
+    <block type="operation" id="op123"  position="29,7,2"                       color="0,100,200" equ="0" sta="s12" status="inactive"/>
+    <block type="fbuffer"    id="b12"    position="27,8,1"   orientation="0"     color="107,208,137" equ="" sta="s12"/>
+
+</blockList>
+</world>

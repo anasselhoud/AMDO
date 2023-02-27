@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<world gridSize="34,14,16">
+  <camera target="16,6.5,1.0" directionSpherical="0,60,100" angle="15" near="50" far="1000" />
+  <spotlight target="17,6.5,1.0" directionSpherical="0,70,200" angle="10" near="50" far="500" />
+  <blockList>
+    <block type="worker" id="w1" position="28,6,5" currPos="b10" station="S11,S12" />
+    <block type="worker" id="w2" position="19,6,5" currPos="se10" station="S1,S10,S8,S9" />
+    <block type="worker" id="w3" position="11,6,5" currPos="b1" station="S2,S3,S7" />
+    <block type="worker" id="w4" position="2,6,5" currPos="b3" station="S4,S5,S6" />
+    <block type="station" id="s1" position="26,13,0" orientation="0" color="238,233,231" equ="1" name="" />
+    <block type="storage" id="se10" position="26,8,1" orientation="0" color="107,208,137" equ="1" sta="s1" leader="True" />
+    <block type="operation" id="op011" position="25,9,2" color="0,100,200" equ="1" sta="s1" status="inactive" />
+    <block type="operation" id="op012" position="24,9,2" color="0,100,200" equ="1" sta="s1" status="active" />
+    <block type="operation" id="op013" position="23,9,2" color="0,100,200" equ="1" sta="s1" status="inactive" />
+    <block type="static" id="sc1" position="23,7,6" orientation="0" color="255,239,255" equ="1" sta="s1" />
+    <block type="fbuffer" id="b1" position="22,7,1" orientation="0" color="107,208,137" equ="" sta="s1" />
+    <block type="robot" id="ro1" position="22,10,7" orientation="0" color="0,200,255" equ="1" />
+    <block type="station" id="s2" position="22,13,0" orientation="0" color="238,233,231" equ="1" name="" />
+    <block type="storage" id="se20" position="18,8,1" orientation="0" color="107,208,137" equ="1" sta="s2" />
+    <block type="operation" id="op021" position="21,9,2" color="0,100,200" equ="1" sta="s2" status="inactive" />
+    <block type="operation" id="op022" position="20,9,2" color="0,100,200" equ="1" sta="s2" status="active" />
+    <block type="operation" id="op023" position="19,9,2" color="0,100,200" equ="1" sta="s2" status="inactive" />
+    <block type="static" id="sc2" position="19,7,6" orientation="0" color="255,239,255" equ="1" sta="s2" />
+    <block type="fbuffer" id="b2" position="18,7,1" orientation="0" color="107,208,137" equ="" sta="s2" />
+    <block type="station" id="s3" position="17,13,0" orientation="0" color="238,233,231" equ="2" name="" />
+    <block type="storage" id="se30" position="17,8,1" orientation="0" color="107,208,137" equ="2" sta="s3" />
+    <block type="operation" id="op031" position="16,9,2" color="0,100,200" equ="2" sta="s3" status="inactive" />
+    <block type="operation" id="op032" position="15,9,2" color="0,100,200" equ="2" sta="s3" status="active" />
+    <block type="operation" id="op033" position="14,9,2" color="0,100,200" equ="2" sta="s3" status="inactive" />
+    <block type="static" id="sc3" position="14,7,6" orientation="0" color="255,239,255" equ="2" sta="s3" />
+    <block type="fbuffer" id="b3" position="13,7,1" orientation="0" color="107,208,137" equ="" sta="s3" />
+    <block type="robot" id="ro2" position="13,10,7" orientation="0" color="0,200,255" equ="2" />
+    <block type="station" id="s4" position="13,13,0" orientation="0" color="238,233,231" equ="2" name="" />
+    <block type="storage" id="se40" position="9,8,1" orientation="0" color="107,208,137" equ="2" sta="s4" />
+    <block type="operation" id="op041" position="12,9,2" color="0,100,200" equ="2" sta="s4" status="inactive" />
+    <block type="operation" id="op042" position="11,9,2" color="0,100,200" equ="2" sta="s4" status="active" />
+    <block type="operation" id="op043" position="10,9,2" color="0,100,200" equ="2" sta="s4" status="inactive" />
+    <block type="static" id="sc4" position="10,7,6" orientation="0" color="255,239,255" equ="2" sta="s4" />
+    <block type="fbuffer" id="b4" position="9,7,1" orientation="0" color="107,208,137" equ="" sta="s4" />
+    <block type="station" id="s5" position="2,0,0" orientation="180" color="238,233,231" equ="3" name="" />
+    <block type="storage" id="se50" position="2,5,1" orientation="0" color="107,208,137" equ="3" sta="s5" />
+    <block type="operation" id="op051" position="3,4,2" color="0,100,200" equ="3" sta="s5" status="inactive" />
+    <block type="operation" id="op052" position="4,4,2" color="0,100,200" equ="3" sta="s5" status="active" />
+    <block type="operation" id="op053" position="5,4,2" color="0,100,200" equ="3" sta="s5" status="inactive" />
+    <block type="static" id="sc5" position="5,6,6" orientation="0" color="255,239,255" equ="3" sta="s5" />
+    <block type="fbuffer" id="b5" position="6,6,1" orientation="0" color="107,208,137" equ="" sta="s5" />
+    <block type="robot" id="ro3" position="6,3,7" orientation="180" color="0,200,255" equ="3" />
+    <block type="station" id="s6" position="6,0,0" orientation="180" color="238,233,231" equ="3" name="" />
+    <block type="storage" id="se60" position="10,5,1" orientation="0" color="107,208,137" equ="3" sta="s6" />
+    <block type="operation" id="op061" position="7,4,2" color="0,100,200" equ="3" sta="s6" status="inactive" />
+    <block type="operation" id="op062" position="8,4,2" color="0,100,200" equ="3" sta="s6" status="active" />
+    <block type="operation" id="op063" position="9,4,2" color="0,100,200" equ="3" sta="s6" status="inactive" />
+    <block type="static" id="sc6" position="9,6,6" orientation="0" color="255,239,255" equ="3" sta="s6" />
+    <block type="fbuffer" id="b6" position="10,6,1" orientation="0" color="107,208,137" equ="" sta="s6" />
+    <block type="station" id="s7" position="11,0,0" orientation="180" color="238,233,231" equ="4" name="" />
+    <block type="storage" id="se70" position="11,5,1" orientation="0" color="107,208,137" equ="4" sta="s7" />
+    <block type="operation" id="op071" position="12,4,2" color="0,100,200" equ="4" sta="s7" status="inactive" />
+    <block type="operation" id="op072" position="13,4,2" color="0,100,200" equ="4" sta="s7" status="active" />
+    <block type="operation" id="op073" position="14,4,2" color="0,100,200" equ="4" sta="s7" status="inactive" />
+    <block type="static" id="sc7" position="14,6,6" orientation="0" color="255,239,255" equ="4" sta="s7" />
+    <block type="fbuffer" id="b7" position="15,6,1" orientation="0" color="107,208,137" equ="" sta="s7" />
+    <block type="robot" id="ro4" position="15,3,7" orientation="180" color="0,200,255" equ="4" />
+    <block type="station" id="s8" position="15,0,0" orientation="180" color="238,233,231" equ="4" name="" />
+    <block type="storage" id="se80" position="19,5,1" orientation="0" color="107,208,137" equ="4" sta="s8" />
+    <block type="operation" id="op081" position="16,4,2" color="0,100,200" equ="4" sta="s8" status="inactive" />
+    <block type="operation" id="op082" position="17,4,2" color="0,100,200" equ="4" sta="s8" status="active" />
+    <block type="operation" id="op083" position="18,4,2" color="0,100,200" equ="4" sta="s8" status="inactive" />
+    <block type="static" id="sc8" position="18,6,6" orientation="0" color="255,239,255" equ="4" sta="s8" />
+    <block type="fbuffer" id="b8" position="19,6,1" orientation="0" color="107,208,137" equ="" sta="s8" />
+    <block type="station" id="s9" position="19,0,0" orientation="180" color="238,233,231" equ="0" name="" />
+    <block type="storage" id="se90" position="19,4,1" orientation="0" color="107,208,137" sta="s9" />
+    <block type="operation" id="op091" position="19,3,2" color="0,100,200" equ="0" sta="s9" status="inactive" />
+    <block type="operation" id="op092" position="20,3,2" color="0,100,200" equ="0" sta="s9" status="active" />
+    <block type="operation" id="op093" position="21,3,2" color="0,100,200" equ="0" sta="s9" status="inactive" />
+    <block type="fbuffer" id="b9" position="22,5,1" orientation="0" color="107,208,137" equ="" sta="s9" />
+    <block type="station" id="s10" position="22,0,0" orientation="180" color="238,233,231" equ="0" name="" />
+    <block type="storage" id="se100" position="22,4,1" orientation="0" color="107,208,137" sta="s10" />
+    <block type="operation" id="op101" position="22,3,2" color="0,100,200" equ="0" sta="s10" status="inactive" />
+    <block type="operation" id="op102" position="23,3,2" color="0,100,200" equ="0" sta="s10" status="active" />
+    <block type="operation" id="op103" position="24,3,2" color="0,100,200" equ="0" sta="s10" status="inactive" />
+    <block type="fbuffer" id="b10" position="25,5,1" orientation="0" color="107,208,137" equ="" sta="s10" />
+    <block type="station" id="s11" position="25,0,0" orientation="180" color="238,233,231" equ="0" name="" />
+    <block type="storage" id="se110" position="25,4,1" orientation="0" color="107,208,137" sta="s11" />
+    <block type="operation" id="op111" position="25,3,2" color="0,100,200" equ="0" sta="s11" status="inactive" />
+    <block type="operation" id="op112" position="26,3,2" color="0,100,200" equ="0" sta="s11" status="active" />
+    <block type="operation" id="op113" position="27,3,2" color="0,100,200" equ="0" sta="s11" status="inactive" />
+    <block type="fbuffer" id="b11" position="28,5,1" orientation="0" color="107,208,137" equ="" sta="s11" />
+    <block type="station" id="s12" position="28,0,0" orientation="180" color="238,233,231" equ="0" name="" />
+    <block type="storage" id="se120" position="28,4,1" orientation="0" color="107,208,137" sta="s12" />
+    <block type="operation" id="op121" position="28,3,2" color="0,100,200" equ="0" sta="s12" status="inactive" />
+    <block type="operation" id="op122" position="29,3,2" color="0,100,200" equ="0" sta="s12" status="active" />
+    <block type="operation" id="op123" position="30,3,2" color="0,100,200" equ="0" sta="s12" status="inactive" />
+    <block type="fbuffer" id="b12" position="31,5,1" orientation="0" color="107,208,137" equ="" sta="s12" />
+  </blockList>
+</world>

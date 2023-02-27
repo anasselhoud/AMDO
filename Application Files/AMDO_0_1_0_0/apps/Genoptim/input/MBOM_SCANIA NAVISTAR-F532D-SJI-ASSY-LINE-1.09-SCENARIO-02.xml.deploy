@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workplan name="WP-3443486-A.1" timestamp="2022-01-27-13-33-09">
+    <ebom workContent="454.12" machineTime="2708.26">
+        <parts>
+            <part id="Loading00037769" ref="Perf. Plate 1" cycleTime="3.060" weight="0.588" thumb="0001.png" name="3417416.1" />
+            <part id="Loading00037768" ref="SCR Assembly 1" cycleTime="6.480" weight="11.800" thumb="0002.png" name="3446477." />
+            <part id="Loading00037771" ref="Perf. Plate 2" cycleTime="3.060" weight="0.492" thumb="0004.png" name="3089610.1" />
+            <part id="Loading00037770" ref="SCR Assembly 2" cycleTime="6.480" weight="11.800" thumb="0005.png" name="3503946.1" />
+            <part id="Loading00037717" ref="Bracket" cycleTime="3.060" weight="0.177" thumb="0008.png" name="3202774.1" />
+            <part id="Loading00037738" ref="EVAP Mixing Tube" cycleTime="7.020" weight="6.200" thumb="0012.png" name="3202778.1" />
+            <part id="Loading00037731" ref="Inner Jacket 2" cycleTime="8.640" weight="1.918" thumb="0013.png" name="3225335.1" />
+            <part id="Loading00037730" ref="Inner Jacket 1" cycleTime="8.640" weight="1.591" thumb="0014.png" name="3212255.1" />
+            <part id="Loading00037772" ref="Rear Baffle" cycleTime="5.400" weight="3.582" thumb="0017.png" name="3203666.1" />
+            <part id="Loading00037773" ref="Evap Return Tube" cycleTime="3.780" weight="2.314" thumb="0018.png" name="3205779.1" />
+            <part id="Loading00037727" ref="Front Baffle" cycleTime="6.480" weight="8.870" thumb="0019.png" name="3446521.1" />
+            <part id="Loading00037775" ref="Inner Jacket 4" cycleTime="7.020" weight="3.240" thumb="0029.png" name="3417620.1" />
+            <part id="Loading00037778" ref="Inlet Pipe" cycleTime="4.680" weight="0.934" thumb="0050.png" name="3417440.1" />
+            <part id="Loading00037779" ref="SCR Cover End Plate" cycleTime="5.400" weight="1.499" thumb="0051.png" name="3203998.1" />
+            <part id="Loading00037780" ref="DPF Cover OUTLET" cycleTime="5.400" weight="2.349" thumb="0056.png" name="3446760.1" />
+            <part id="Loading00037782" ref="Inlet Cover End Plate" cycleTime="5.400" weight="1.951" thumb="0057.png" name="3209342.1" />
+            <part id="Loading00037783" ref="UDS Module" cycleTime="5.400" weight="1.146" thumb="0060.png" name="3209343.1" />
+            <part id="Loading00037781" ref="EVAP Cover End plate" cycleTime="5.400" weight="1.698" thumb="0062.png" name="3426093.1" />
+            <part id="Loading00037784" ref="Front Outer Jacket" cycleTime="5.400" weight="6.540" thumb="0065.png" name="3446816.1" />
+            <part id="Loading00037785" ref="Rear Outer Jacket" cycleTime="5.400" weight="4.900" thumb="0068.png" name="3446841.1" />
+            <part id="Loading00037786" ref="Outer Jacket/Wrapper 1" cycleTime="5.400" weight="1.668" thumb="0069.png" name="3446891.1" />
+            <part id="Loading00037787" ref="Outer Jacket/Wrapper 2" cycleTime="5.400" weight="2.072" thumb="0071.png" name="3417614.1" />
+            <part id="Loading00037788" ref="Outer Jacket/Wrapper 3" cycleTime="5.400" weight="2.922" thumb="0084.png" name="3417428.1" />
+            <part id="Loading00037790" ref="Outlet Pipe Sub Assy" cycleTime="6.300" weight="0.754" thumb="0097.png" name="3417635.1" />
+            <part id="Loading00037774" ref="Inner Jacket 3" cycleTime="7.020" weight="1.673" thumb="0098.png" name="3417650.1" />
+            <part id="Loading00037789" ref="Outer Jacket/Wrapper 4" cycleTime="5.400" weight="1.759" thumb="0099.png" name="3417599.1" />
+            <part id="Loading00037740" ref="3502133" cycleTime="3.240" weight="15.430" thumb="0104.png" name="3502133.DPF CANNING" />
+            <part id="Loading00037746" ref="3006285 (Loading00035145.4)" cycleTime="2.160" weight="3.260" thumb="0105.png" name="3006285" />
+            <part id="Loading00037748" ref="DOC Subassy" cycleTime="6.480" weight="14.700" thumb="0106.png" name="3446995.1" />
+            <part id="Loading00037747" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0108.png" name="815132.2" />
+            <part id="Loading00037723" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0109.png" name="815132.3" />
+            <part id="Loading00037765" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0110.png" name="2689554.1" />
+            <part id="Loading00037739" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0111.png" name="815132.4" />
+            <part id="Loading00037729" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0112.png" name="815132.7" />
+            <part id="Loading00037759" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0113.png" name="815132.8" />
+            <part id="Loading00037732" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0114.png" name="815132.6" />
+            <part id="Loading00037744" ref="2652689X" cycleTime="1.440" weight="0.001" thumb="0115.png" name="815132.5" />
+            <part id="Loading00037737" ref="Loading00035174 (Loading00035174.13)" cycleTime="0.000" weight="0.000" thumb="0116.png" name="" />
+            <part id="Loading00037752" ref="2652704X" cycleTime="1.440" weight="0.205" thumb="0118.png" name="GASKET" />
+            <part id="Loading00037736" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0121.png" name="3205775.1" />
+            <part id="Loading00037750" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0122.png" name="3006297.8" />
+            <part id="Loading00037721" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0123.png" name="3006297.11" />
+            <part id="Loading00037733" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0124.png" name="3006297.12" />
+            <part id="Loading00037766" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0125.png" name="3006297.13" />
+            <part id="Loading00037757" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0126.png" name="3006297.14" />
+            <part id="Loading00037762" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0127.png" name="3006297.15" />
+            <part id="Loading00037735" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0128.png" name="3006297.16" />
+            <part id="Loading00037753" ref="3006297" cycleTime="0.000" weight="0.014" thumb="0129.png" name="3006297.17" />
+            <part id="Loading00037760" ref="DPF Holding Tube" cycleTime="5.400" weight="5.716" thumb="0130.png" name="3502139" />
+            <part id="Loading00037777" ref="TEMPERATURE SENSOR Boss" cycleTime="4.680" weight="0.048" thumb="0131.png" name="3398221" />
+            <part id="Loading00037776" ref="PRESSURE SENSOR BOSS" cycleTime="4.680" weight="0.046" thumb="0132.png" name="3398234" />
+        </parts>
+			<weldings>
+			<group id="1" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025397" cycleTime="69.11670" weight="12.388" thumb="0003.png" name="{12mm_s} Weld  Seam 13" length="0.815" type="Mag B-Circ" forbidden="" assy="Loading00037769;Loading00037768" precedency="" />
+				<welding id="Machine00025398" cycleTime="69.11670" weight="12.292" thumb="0006.png" name="{12mm_s} Weld  Seam 14" length="0.815" type="Mag B-Circ" forbidden="" assy="Loading00037771;Loading00037770" precedency="" />
+				<welding id="Machine00025399" cycleTime="142.73300" weight="28.262" thumb="0007.png" name="{12mm_s} Weld  Seam 27" length="1.660" type="Mag B-Circ" forbidden="" assy="Loading00037772;Loading00037768;Loading00037770" precedency="" />
+				<welding id="Machine00025402" cycleTime="8.56667" weight="30.753" thumb="0009.png" name="{12mm_s} Weld  Seam 28.3" length="0.050" type="Mag Lin T" forbidden="" assy="Loading00037768;Loading00037717" precedency="" />
+				<welding id="Machine00025401" cycleTime="10.23330" weight="30.753" thumb="0010.png" name="{12mm_s} Weld  Seam 28.2" length="0.070" type="Mag Lin T" forbidden="" assy="Loading00037717;Loading00037770" precedency="" />
+				<welding id="Machine00025400" cycleTime="28.73330" weight="2.491" thumb="0011.png" name="{12mm_s} Weld  Seam 28.1" length="0.292" type="Mag Lin T" forbidden="" assy="Loading00037717;Loading00037773" precedency="" />
+				<welding id="Machine00025371" cycleTime="18.16670" weight="53.457" thumb="0015.png" name="[1]{12mm_s} Weld  Seam 9" length="0.050" type="Mag Lin T" forbidden="" assy="Loading00037772;Loading00037731;Loading00037727" precedency="" />
+				<welding id="Machine00025359" cycleTime="18.16670" weight="53.130" thumb="0016.png" name="[1]{12mm_s} Weld  Seam 8" length="0.050" type="Mag Lin T" forbidden="" assy="Loading00037727;Loading00037730;Loading00037772" precedency="" />
+			</group>
+			<group id="2" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025373" cycleTime="29.31760" weight="426.349" thumb="0020.png" name="{17mm_s} Weld  Seam 14" length="0.478" type="Mag Lin T" forbidden="" assy="Loading00037731;Loading00037730" precedency="" />
+				<welding id="Machine00025340" cycleTime="18.43530" weight="106.587" thumb="0021.png" name="[2]{17mm_s} Weld  Seam 10" length="0.293" type="Mag Lin T" forbidden="" assy="Loading00037730;Loading00037727" precedency="" />
+				<welding id="Machine00025330" cycleTime="22.37650" weight="213.174" thumb="0022.png" name="[3]{17mm_s} Weld  Seam 12" length="0.360" type="Mag Lin T" forbidden="" assy="Loading00037731;Loading00037727" precedency="" />
+				<welding id="Machine00025323" cycleTime="18.43530" weight="106.587" thumb="0023.png" name="[2]{17mm_s} Weld  Seam 11" length="0.293" type="Mag Lin T" forbidden="" assy="Loading00037772;Loading00037730" precedency="" />
+				<welding id="Machine00025329" cycleTime="22.37650" weight="213.174" thumb="0024.png" name="[3]{17mm_s} Weld  Seam 13" length="0.360" type="Mag Lin T" forbidden="" assy="Loading00037731;Loading00037772" precedency="" />
+				<welding id="Machine00025389" cycleTime="87.03330" weight="426.349" thumb="0025.png" name="[37]{12mm_s} Weld  Seam 36" length="1.030" type="Mag B-Circ" forbidden="" assy="Loading00037760;Loading00037727" precedency="" />
+				<welding id="Machine00025333" cycleTime="92.53330" weight="426.349" thumb="0026.png" name="[37]{12mm_s} Weld  Seam 37" length="1.096" type="Mag B-Circ" forbidden="" assy="Loading00037760;Loading00037772" precedency="" />
+				<welding id="Machine00025390" cycleTime="44.95000" weight="240.218" thumb="0027.png" name="[36]{12mm_s} Weld  Seamn 39" length="0.525" type="Mag B-Circ" forbidden="" assy="Loading00037738;Loading00037772" precedency="" />
+				<welding id="Machine00025366" cycleTime="47.20000" weight="240.218" thumb="0028.png" name="[36]{12mm_s} Weld  Seamn 38" length="0.552" type="Mag B-Circ" forbidden="" assy="Loading00037738;Loading00037727" precedency="" />
+			</group>
+			<group id="3" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025390" cycleTime="44.95000" weight="240.218" thumb="0027.png" name="[36]{12mm_s} Weld  Seamn 39" length="0.525" type="Mag B-Circ" forbidden="" assy="Loading00037738;Loading00037772" precedency="" />
+				<welding id="Machine00025366" cycleTime="47.20000" weight="240.218" thumb="0028.png" name="[36]{12mm_s} Weld  Seamn 38" length="0.552" type="Mag B-Circ" forbidden="" assy="Loading00037738;Loading00037727" precedency="" />
+				<welding id="Machine00025321" cycleTime="26.23330" weight="56.721" thumb="0030.png" name="[4]{12mm_s} Weld  Seam 15" length="0.070" type="Mag Lin T" forbidden="" assy="Loading00037774;Loading00037727;Loading00037772" precedency="" />
+				<welding id="Machine00025380" cycleTime="26.23330" weight="58.288" thumb="0031.png" name="[4]{12mm_s} Weld  Seam 16" length="0.070" type="Mag Lin T" forbidden="" assy="Loading00037775;Loading00037772;Loading00037727" precedency="" />
+				<welding id="Machine00025381" cycleTime="27.20000" weight="230.017" thumb="0032.png" name="[6]{17mm_s} Weld  Seam 19" length="0.442" type="Mag Lin T" forbidden="" assy="Loading00037727;Loading00037775" precedency="" />
+				<welding id="Machine00025324" cycleTime="26.37650" weight="230.017" thumb="0033.png" name="[6]{17mm_s} Weld  Seam 20" length="0.428" type="Mag Lin T" forbidden="" assy="Loading00037774;Loading00037772" precedency="" />
+				<welding id="Machine00025341" cycleTime="15.08240" weight="115.008" thumb="0034.png" name="[5]{17mm_s} Weld  Seam 17" length="0.236" type="Mag Lin T" forbidden="" assy="Loading00037774;Loading00037727" precedency="" />
+				<welding id="Machine00025336" cycleTime="15.08240" weight="115.008" thumb="0035.png" name="[5]{17mm_s} Weld  Seam 18" length="0.236" type="Mag Lin T" forbidden="" assy="Loading00037774;Loading00037772" precedency="" />
+			</group>
+			<group id="4" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025320" cycleTime="29.43530" weight="460.033" thumb="0036.png" name="{17mm_s} Weld  Seam 21" length="0.480" type="Mag Lin T" forbidden="" assy="Loading00037774;Loading00037775" precedency="" />
+				<welding id="Machine00025360" cycleTime="29.31760" weight="59.961" thumb="0037.png" name="[7]{17mm_s} Weld  Seam 23" length="0.478" type="Mag Lin T" forbidden="" assy="Loading00037730;Loading00037774" precedency="" />
+				<welding id="Machine00025387" cycleTime="25.31760" weight="59.961" thumb="0038.png" name="[7]{17mm_s} Weld  Seam 22" length="0.410" type="Mag Lin T" forbidden="" assy="Loading00037731;Loading00037775" precedency="" />
+				<welding id="Machine00025388" cycleTime="8.55294" weight="119.923" thumb="0039.png" name="[8]{17mm_s} Weld  Seam 24" length="0.125" type="Mag Lin T" forbidden="" assy="Loading00037730;Loading00037727" precedency="" />
+				<welding id="Machine00025378" cycleTime="8.55294" weight="119.923" thumb="0040.png" name="[8]{17mm_s} Weld  Seam 25" length="0.125" type="Mag Lin T" forbidden="" assy="Loading00037772;Loading00037730" precedency="" />
+				<welding id="Machine00025317" cycleTime="10.37650" weight="239.846" thumb="0041.png" name="[9]{17mm_s} Weld  Seam 26" length="0.156" type="Mag Lin T" forbidden="" assy="Loading00037727;Loading00037731" precedency="" />
+				<welding id="Machine00025318" cycleTime="10.37650" weight="239.846" thumb="0042.png" name="[9]{17mm_s} Weld  Seam 27" length="0.156" type="Mag Lin T" forbidden="" assy="Loading00037772;Loading00037731" precedency="" />
+				<welding id="Machine00025339" cycleTime="53.45000" weight="60.054" thumb="0043.png" name="{12mm_s} Weld  Seam 30" length="0.627" type="Mag M-Circ Ext T" forbidden="" assy="Loading00037773;Loading00037727" precedency="" />
+				<welding id="Machine00025337" cycleTime="72.01180" weight="62.488" thumb="0052.png" name="[11]{17mm_s} Weld  Seam 41" length="1.095" type="Mag B-Circ" forbidden="" assy="Loading00037779;Loading00037772" precedency="" />
+				<welding id="Machine00025353" cycleTime="27.96470" weight="62.488" thumb="0053.png" name="[11]{17mm_s} Weld  Seam 42" length="0.455" type="Mag B-Circ" forbidden="" assy="Loading00037779;Loading00037772" precedency="" />
+				<welding id="Machine00025352" cycleTime="34.40000" weight="131.624" thumb="0059.png" name="[13]{17mm_s} Weld  Seam 46" length="0.510" type="Mag B-Circ" forbidden="" assy="Loading00037782;Loading00037727" precedency="" />
+				<welding id="Machine00025375" cycleTime="35.81180" weight="136.417" thumb="0061.png" name="{17mm_s} Weld  Seam 47" length="0.534" type="Mag B-Circ" forbidden="" assy="Loading00037780;Loading00037783" precedency="" />
+				<welding id="Machine00025363" cycleTime="71.97650" weight="68.484" thumb="0063.png" name="[14]{17mm_s} Weld  Seam 48" length="1.040" type="Mag B-Circ" forbidden="" assy="Loading00037781;Loading00037727" precedency="" />
+				<welding id="Machine00025365" cycleTime="27.92940" weight="60.989" thumb="0049.png" name="{17mm_s} Weld  Seam 40" length="0.400" type="Mag Lin T" forbidden="" assy="Loading00037778;Loading00037727" precedency="" />
+				<welding id="Machine00025384" cycleTime="0.00000" weight="7194350000.000" thumb="0107.png" name="" length="0.000" type="Mt" forbidden="" assy="Loading00037748;Loading00037740" precedency="" />
+			</group>
+			<group id="5" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025374" cycleTime="59.78330" weight="60.054" thumb="0044.png" name="{12mm_s} Weld  Seam 31" length="0.703" type="Mag M-Circ Ext T" forbidden="" assy="Loading00037773;Loading00037772" precedency="" />
+				<welding id="Machine00025345" cycleTime="20.86670" weight="60.054" thumb="0045.png" name="[9]{12mm_s} Weld  Seam 32" length="0.236" type="Mag Lin T" forbidden="" assy="Loading00037727;Loading00037774" precedency="" />
+				<welding id="Machine00025351" cycleTime="20.86670" weight="60.054" thumb="0046.png" name="[9]{12mm_s} Weld  Seam 33" length="0.236" type="Mag Lin T" forbidden="" assy="Loading00037772;Loading00037774" precedency="" />
+				<welding id="Machine00025338" cycleTime="38.03330" weight="120.109" thumb="0047.png" name="[10]{12mm_s} Weld  Seam 34" length="0.442" type="Mag Lin T" forbidden="" assy="Loading00037727;Loading00037775" precedency="" />
+				<welding id="Machine00025382" cycleTime="36.86670" weight="120.109" thumb="0048.png" name="[10]{12mm_s} Weld  Seam 35" length="0.428" type="Mag Lin T" forbidden="" assy="Loading00037772;Loading00037775" precedency="" />
+				<welding id="Machine00025403" cycleTime="90.32940" weight="64.836" thumb="0054.png" name="[12]{17mm_s} Weld  Seam 43" length="1.352" type="Mag B-Circ" forbidden="" assy="Loading00037780;Loading00037772" precedency="" />
+				<welding id="Machine00025404" cycleTime="35.02350" weight="64.836" thumb="0055.png" name="[12]{17mm_s} Weld  Seam 44" length="0.575" type="Mag B-Circ" forbidden="" assy="Loading00037772;Loading00037780" precedency="" />
+				<welding id="Machine00025350" cycleTime="69.01180" weight="131.624" thumb="0058.png" name="[13]{17mm_s} Weld  Seam 45" length="1.044" type="Mag B-Circ" forbidden="" assy="Loading00037727;Loading00037782" precedency="" />
+			</group>
+			<group id="6" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025325" cycleTime="36.75290" weight="66.786" thumb="0064.png" name="[14]{17mm_s} Weld  Seam 49" length="0.550" type="Mag B-Circ" forbidden="" assy="Loading00037727;Loading00037781" precedency="" />
+				<welding id="Machine00025379" cycleTime="145.65000" weight="76.170" thumb="0066.png" name="[15]{12mm_s} Weld  Seam 50" length="1.311" type="Mag Lin T" forbidden="" assy="Loading00037784;Loading00037727" precedency="" />
+				<welding id="Machine00025357" cycleTime="150.70000" weight="74.530" thumb="0067.png" name="[15]{12mm_s} Weld  Seam 51" length="1.410" type="Mag Lin T" forbidden="" assy="Loading00037785;Loading00037772" precedency="" />
+				<welding id="Machine00025393" cycleTime="20.10000" weight="82.695" thumb="0070.png" name="{12mm_s} Weld  Seam 52.1" length="0.150" type="Mag Lin T" forbidden="" assy="Loading00037786;Loading00037784" precedency="" />
+				<welding id="Machine00025322" cycleTime="18.70000" weight="165.390" thumb="0072.png" name="[16]{12mm_s} Weld  Seam 52.2" length="0.210" type="Mag Lin T" forbidden="" assy="Loading00037784;Loading00037786" precedency="" />
+				<welding id="Machine00025327" cycleTime="12.73330" weight="332.852" thumb="0073.png" name="[17]{12mm_s} Weld  Seam 52.3" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037784;Loading00037787" precedency="" />
+				<welding id="Machine00025367" cycleTime="8.95000" weight="665.705" thumb="0074.png" name="{12mm_s} Weld  Seam 52.4" length="0.093" type="Mag Lin T" forbidden="" assy="Loading00037787;Loading00037784" precedency="" />
+				<welding id="Machine00025396" cycleTime="20.10000" weight="82.695" thumb="0075.png" name="{12mm_s} Weld  Seam 53.1" length="0.150" type="Mag Lin T" forbidden="" assy="Loading00037786;Loading00037785" precedency="" />
+				<welding id="Machine00025335" cycleTime="18.45000" weight="165.390" thumb="0076.png" name="[16]{12mm_s} Weld  Seam 53.2" length="0.207" type="Mag Lin T" forbidden="" assy="Loading00037786;Loading00037785" precedency="" />
+				<welding id="Machine00025362" cycleTime="12.73330" weight="332.852" thumb="0077.png" name="[17]{12mm_s} Weld  Seam 53.3" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037787;Loading00037785" precedency="" />
+				<welding id="Machine00025355" cycleTime="20.10000" weight="665.705" thumb="0078.png" name="[18]{12mm_s} Weld  Seam 54" length="0.150" type="Mag Lin T" forbidden="" assy="Loading00037786;Loading00037787" precedency="" />
+				<welding id="Machine00025358" cycleTime="12.73330" weight="665.705" thumb="0079.png" name="[18]{12mm_s} Weld  Seam 55" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037787;Loading00037786" precedency="" />
+				<welding id="Machine00025405" cycleTime="12.73330" weight="87.699" thumb="0080.png" name="[19]{12mm_s} Weld  Seam 56.1" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037784;Loading00037788" precedency="" />
+				<welding id="Machine00025328" cycleTime="40.26670" weight="1331.410" thumb="0081.png" name="{12mm_s} Weld  Seam 71" length="0.200" type="Mag Lin T" forbidden="" assy="Loading00037783;Loading00037785" precedency="" />
+				<welding id="Machine00025407" cycleTime="59.53330" weight="177.157" thumb="0082.png" name="[20]{12mm_s} Weld  Seam 56.2" length="0.700" type="Mag Lin T" forbidden="" assy="Loading00037789;Loading00037784" precedency="" />
+			</group>
+			<group id="7" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025368" cycleTime="6.86667" weight="224823000.000" thumb="0083.png" name="[21]{12mm_s} Weld  Seam 56.3" length="0.068" type="Mag Lin T" forbidden="" assy="Loading00037784" precedency="" />
+				<welding id="Machine00025406" cycleTime="12.73330" weight="87.699" thumb="0085.png" name="[19]{12mm_s} Weld  Seam 57.1" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037788;Loading00037785" precedency="" />
+				<welding id="Machine00025408" cycleTime="27.86670" weight="177.157" thumb="0086.png" name="[20]{12mm_s} Weld  Seam 57.2" length="0.320" type="Mag Lin T" forbidden="" assy="Loading00037789;Loading00037785" precedency="" />
+				<welding id="Machine00025409" cycleTime="12.73330" weight="354.314" thumb="0087.png" name="{12mm_s} Weld  Seam 57.3" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037785;Loading00037789" precedency="" />
+				<welding id="Machine00025410" cycleTime="20.10000" weight="354.314" thumb="0088.png" name="[22]{12mm_s} Weld  Seam 58" length="0.150" type="Mag Lin T" forbidden="" assy="Loading00037789;Loading00037788" precedency="" />
+				<welding id="Machine00025411" cycleTime="12.73330" weight="354.314" thumb="0089.png" name="[22]{12mm_s} Weld  Seam 59" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037788;Loading00037789" precedency="" />
+				<welding id="Machine00025415" cycleTime="20.10000" weight="1417.250" thumb="0090.png" name="[23]{12mm_s} Weld  Seam 60" length="0.150" type="Mag Lin T" forbidden="" assy="Loading00037789;Loading00037786" precedency="" />
+
+			</group>
+			<group id="8" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025416" cycleTime="12.73330" weight="1417.250" thumb="0091.png" name="[23]{12mm_s} Weld  Seam 61" length="0.100" type="Mag Lin T" forbidden="" assy="Loading00037786;Loading00037789" precedency="" />
+				<welding id="Machine00025417" cycleTime="20.10000" weight="2834.510" thumb="0092.png" name="[24]{12mm_s} Weld  Seam 62" length="0.150" type="Mag Lin T" forbidden="" assy="Loading00037788;Loading00037787" precedency="" />
+				<welding id="Machine00025418" cycleTime="5.36667" weight="2834.510" thumb="0093.png" name="[24]{12mm_s} Weld  Seam 63" length="0.050" type="Mag Lin T" forbidden="" assy="Loading00037787;Loading00037788" precedency="" />
+				<welding id="Machine00025412" cycleTime="0.00000" weight="708.627" thumb="0094.png" name="{12mm_s} Weld  Seam 64" length="0.375" type="Mag Lin T" forbidden="" assy="Loading00037788;Loading00037785" precedency="" />
+				<welding id="Machine00025413" cycleTime="18.61670" weight="708.627" thumb="0095.png" name="[25]{12mm_s} Weld  Seam 66" length="0.209" type="Mag Lin T" forbidden="" assy="Loading00037785;Loading00037789" precedency="" />
+				<welding id="Machine00025414" cycleTime="18.70000" weight="708.627" thumb="0096.png" name="[25]{12mm_s} Weld  Seam 65" length="0.210" type="Mag Lin T" forbidden="" assy="Loading00037784;Loading00037789" precedency="" />
+				<welding id="Machine00025419" cycleTime="37.73330" weight="90.211" thumb="0100.png" name="{12mm_s} Weld  Seam 67" length="0.400" type="Mag B-Circ" forbidden="" assy="Loading00037774;Loading00037790" precedency="" />
+			</group>
+			<group id="9" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025420" cycleTime="9.40000" weight="90.211" thumb="0101.png" name="{12mm_s} Weld  Seam 68" length="0.060" type="Mag Lin T" forbidden="" assy="Loading00037789;Loading00037790" precedency="" />
+				<welding id="Machine00025421" cycleTime="4.95000" weight="90.211" thumb="0102.png" name="{12mm_s} Weld  Seam 69" length="0.045" type="Mag Lin T" forbidden="" assy="Loading00037789;Loading00037790" precedency="" />
+				<welding id="Machine00025422" cycleTime="6.20000" weight="90.211" thumb="0103.png" name="{12mm_s} Weld  Seam 70" length="0.060" type="Mag Lin T" forbidden="" assy="Loading00037790;Loading00037789" precedency="" />
+			</group>
+			<group id="10" cycleTime="xyz" link="Loading00008638">
+				<welding id="Machine00025342" cycleTime="11.14120" weight="479.738" thumb="0133.png" name="{17mm_s}  Weld Seam 28" length="0.169" type="Mag S-Circ" forbidden="" assy="Loading00037776;Loading00037760;Loading00037775" precedency="" />
+				<welding id="Machine00025343" cycleTime="11.49410" weight="479.786" thumb="0134.png" name="{17mm_s}  Weld Seam 29" length="0.175" type="Mag S-Circ" forbidden="" assy="Loading00037777;Loading00037760;Loading00037775" precedency="" />
+				<welding id="Machine00025937" cycleTime="148.50000" weight="51.539" thumb="0136.png" name="{12mm_s} Weld  Seam 1 2 3 4 5 6 7 72" length="0.654" type="Mag Lin T" forbidden="" assy="Loading00037738;Loading00037760;Loading00037773;Loading00037772;Loading00037727" precedency="" />
+			</group>
+		</weldings>	
+    </ebom>
+</workplan>

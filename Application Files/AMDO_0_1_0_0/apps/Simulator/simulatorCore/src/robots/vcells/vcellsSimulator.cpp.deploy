@@ -1,0 +1,410 @@
+/*
+ * vcellsSimulator.cpp
+ *
+ *  Created on: 12 avril 2013
+ *      Author: ben
+ *  @modified: ishan
+ */
+
+#include <iostream>
+#include <string>
+
+#include "vcellsSimulator.h"
+
+using namespace std;
+
+namespace Vcells {
+
+    VcellsSimulator::VcellsSimulator(int argc, char *argv[], BlockCodeBuilder bcb)
+            : BaseSimulator::Simulator(argc, argv, bcb) {
+#ifdef DEBUG_OBJECT_LIFECYCLE
+        cout << TermColor::LifecycleColor << "VcellsSimulator constructor" << TermColor::Reset << endl;
+#endif
+    }
+
+    VcellsSimulator::~VcellsSimulator() {
+#ifdef DEBUG_OBJECT_LIFECYCLE
+        cout << TermColor::LifecycleColor << "VcellsSimulator destructor" << TermColor::Reset <<endl;
+#endif
+    }
+
+    void VcellsSimulator::createSimulator(int argc, char *argv[], BlockCodeBuilder bcb) {
+        simulator = new VcellsSimulator(argc, argv, bcb);
+        simulator->parseConfiguration(argc, argv);
+        simulator->startSimulation();
+    }
+
+    void VcellsSimulator::loadWorld(const Cell3DPosition &gridSize, const Vector3D &gridScale,
+                                    int argc, char *argv[]) {
+        world = new VcellsWorld(gridSize, gridScale, argc, argv);
+
+        if (GlutContext::GUIisEnabled) {
+            string directory;
+#ifdef WIN32
+            directory = string(ROOT_DIR) + "/simulatorCore/resources/textures/latticeTextures";
+#else
+            directory = "../../simulatorCore/resources/textures/latticeTextures";
+#endif
+            world->loadTextures(directory);
+        }
+        World::setWorld(world);
+    }
+
+    void VcellsSimulator::loadBlock(TiXmlElement *blockElt, bID blockId, BlockCodeBuilder bcb,
+                                    const Cell3DPosition &pos, const Color &color, bool master) {
+
+        // Any additional configuration file parsing exclusive to this type of block should be performed
+        //  here, using the blockElt TiXmlElement.
+
+        // ...Parsing code...
+        string blockName = "noName";
+        const char *attr = blockElt->Attribute("type");
+        VcellsGlBlock::ModelTypes type = VcellsGlBlock::UNKNOWN;
+        if (attr) {
+            string str(attr);
+            if (str == "RStation") type = VcellsGlBlock::VCELL_RIGHT;
+            else if (str == "LStation") type = VcellsGlBlock::VCELL_LEFT;
+            else if (str == "station") type = VcellsGlBlock::STATION;
+            else if (str == "buffer") type = VcellsGlBlock::BUFFER;
+            else if (str == "operation") type = VcellsGlBlock::OPERATION;
+            else if (str == "storage") type = VcellsGlBlock::STORAGE;
+            else if (str == "tools") type = VcellsGlBlock::TOOLS;
+            else if (str == "fbuffer") type = VcellsGlBlock::BUFFER2;
+            else if (str == "worker") type = VcellsGlBlock::WORKER;
+            else if (str == "static") type = VcellsGlBlock::STATIC;
+            else if (str == "robot") type = VcellsGlBlock::ROBOT;
+            else if (str == "robotflag") type = VcellsGlBlock::ROBOTFLAG;
+        }
+
+        attr = blockElt->Attribute("id");
+        if (attr) {
+            string str(attr);
+            auto p = str.find_first_of("0123456789");
+            if (p != string::npos) {
+                blockName = attr;
+                string header = str.substr(0, p);
+                blockId = stoi(str.substr(p));
+                if (header == "s") {
+                    blockId += 100;
+                } else if (header == "b") {
+                    blockId += 200;
+                } else if (header == "se") {
+                    blockId += 300;
+                } else if (header == "op") {
+                    blockId += 400;
+                } else if (header == "t") {
+                    blockId += 500;
+                } else if (header == "w") {
+                    blockId += 600;
+                } else if (header == "sc") {
+                    blockId += 700;
+                } else if (header == "ro") {
+                    blockId += 800;
+                } else if (header == "rf") {
+                    blockId += 900;
+                } else cout << "header " << header << " unknown" << endl;
+                //cout << header << "/" << blockId << endl;
+            } else {
+                blockId = stoi(str);
+                cout << blockId << endl;
+            }
+        }
+
+        short orientation = 0;
+        attr = blockElt->Attribute("orientation");
+        if (attr) {
+            string str(attr);
+            orientation = static_cast<short>(stoi(str));
+        }
+
+        // Finally, add block to the world
+        ((VcellsWorld *) world)->addBlock(blockId, bcb, pos, color, orientation, master);
+        VcellsBlock *vcell = (VcellsBlock *) (world->getBlockById(blockId));
+        ((VcellsGlBlock *) vcell->ptrGlBlock)->modelType = type;
+        vcell->blockName = blockName;
+
+        vcell->buildingBlockName = blockName;
+
+        vcell->blockCode->parseUserBlockElements(blockElt);
+    }
+
+
+    // $#13
+    /**
+     * Function to parse station nodes in action.xml
+     * @param stationNode the station node which encapsulates all actions
+     * @param vworld the VcellsWorld object which allows this function to get the locks using names
+     * @param vcellID the id of the vcell if it exists which further encapsulates the stations
+     */
+    void parseStations(TiXmlNode *stationNode, VcellsWorld *vworld, string vcellID = "") {
+
+        TiXmlNode *actNode = nullptr, *stationNode2 = nullptr;
+        bool robotAction = false, machineAction = false;
+        string robotID = "", stationID = "", workerID = "";
+        string stationFullID = "";
+        int workerNumID;
+
+        VcellsBlock *workerBlock = nullptr, *stationBlock = nullptr, *robotBlock = nullptr;
+        while (stationNode) {
+            stationNode2 = stationNode;
+            TiXmlElement *stationElement = stationNode->ToElement();
+
+            if (robotAction) {
+                robotID = stationElement->Attribute("id");
+                robotID = "ro" + robotID;
+            }
+            else if(machineAction){
+                // add to a new list of machine task
+            }
+            else {
+                stationID = stationElement->Attribute("id");
+
+                workerID = stationElement->Attribute("worker");
+                workerNumID = stoi(workerID);
+                workerID = "w" + workerID;
+
+                stationFullID = "s" + stationID;
+                stationBlock = vworld->findBlockByName(stationFullID);
+                workerBlock = vworld->findBlockByName(workerID);
+
+                stationBlock->workerID = workerID;
+                vworld->linkBlocks(stationBlock, workerBlock, nullptr);
+            }
+
+            actNode = stationNode->FirstChild("action");
+            VcellsBlock *actionSrc = nullptr, *actionTgt = nullptr;
+
+            while (actNode) {
+                TiXmlElement *actionElement = actNode->ToElement();
+
+                string actionSource = actionElement->Attribute("src");
+                string actionDest = actionElement->Attribute("tgt");
+
+                if (!vworld->isFirstActionRecorded) {
+                    vworld->firstAction = actionElement->Attribute("id");
+                    vworld->isFirstActionRecorded = true;
+                }
+
+                vworld->lastAction = actionElement->Attribute("id");
+
+                actionSrc = vworld->findBlockByName(actionSource);
+                actionTgt = vworld->findBlockByName(actionDest);
+
+                if (actionSrc && actionTgt) {
+
+                    if (machineAction) {
+                        // link the action source and target
+                        vworld->linkBlocks(actionSrc, actionTgt, actionElement);
+
+                        // add the action to he machine action list
+                        actionSrc->machineActionList.push_back(actionElement->Attribute("id"));
+                    } else {
+                        // if the actions concern the robot
+                        if (robotAction) {
+                            string fullVcellName = "v" + vcellID;
+
+                            if (actionSrc->robotID.empty() && actionSource != robotID)
+                                actionSrc->robotID = robotID;
+
+                            stationID = actionElement->Attribute("id");
+                            stationID = stationID.substr(1, 2);
+                            int stID = stoi(stationID);
+                            stationFullID = "s" + to_string(stID);
+
+                            vworld->linkBlocks(actionSrc, actionTgt, actionElement);
+
+                            // add the action to the robotlist
+                            actionSrc->robotList.push_back(actionElement->Attribute("id"));
+
+                            if (BaseSimulator::getWorld()->blockFirstAction.find(fullVcellName) ==
+                                BaseSimulator::getWorld()->blockFirstAction.end() &&
+                                actionElement->Attribute("id")[0] == '3') {
+                                // not found
+                                BaseSimulator::getWorld()->blockFirstAction[fullVcellName] = actionElement->Attribute(
+                                        "id");
+                            }
+                        }
+
+                            // if the actions are for the worker flow
+                        else {
+                            if (actionSrc->vcellID.empty())
+                                actionSrc->vcellID = vcellID;
+
+                            if (actionSrc->stationID.empty())
+                                actionSrc->stationID = stationID;
+
+                            stationFullID = "s" + stationID;
+
+                            if (actionSource != actionDest) {
+                                auto actS = actionSource.find_first_of("0123456789");
+                                auto actT = actionDest.find_first_of("0123456789");
+                                string srcHeader = actionSource.substr(0, actS);
+                                string tgtHeader = actionDest.substr(0, actT);
+
+                                if (srcHeader == "b" && tgtHeader == "b") {
+                                    string srcNum = actionSource.substr(actionSource.find(srcHeader) + 1);
+                                    string tgtNum = actionDest.substr(actionDest.find(tgtHeader) + 1);
+
+//                                    cout << "\n\nAction source, header and number are " << endl;
+//                                    cout << actionSource << " - " << srcHeader << " - " << srcNum << " - " << tgtNum
+//                                         << "\n\n" << endl;
+
+                                    int sN = stoi(srcNum);
+                                    int tN = stoi(tgtNum);
+                                    if (tN > sN) {
+                                        string firstBlockName = BaseSimulator::getWorld()->workerFirstActionBlock[workerID];
+                                        VcellsBlock *firstBlock = vworld->findBlockByName(firstBlockName);
+                                        actionSrc->bufferForRampUp = true;
+                                        workerBlock->mapNeedToWait.insert(pair<string, bool>(actionDest, true));
+                                        vworld->linkBlocks(actionSrc, firstBlock, nullptr);
+                                    }
+                                }
+                            }
+
+                            // add the first action for each worker to the world
+                            if (BaseSimulator::getWorld()->workerFirstAction.find(workerID) ==
+                                BaseSimulator::getWorld()->workerFirstAction.end()) {
+                                // not found
+                                BaseSimulator::getWorld()->workerFirstAction.insert(
+                                        pair<string, string>(workerID, actionElement->Attribute("id")));
+                                BaseSimulator::getWorld()->workerFirstActionBlock.insert(
+                                        pair<string, string>(workerID, actionElement->Attribute("src")));
+                            }
+
+                            // add the first action for each station
+                            if (BaseSimulator::getWorld()->blockFirstAction.find(stationFullID) ==
+                                BaseSimulator::getWorld()->blockFirstAction.end()) {
+                                // not found
+                                BaseSimulator::getWorld()->blockFirstAction[stationFullID] = actionElement->Attribute(
+                                        "id");
+                            }
+
+                            // add the last action for each worker
+                            BaseSimulator::getWorld()->workerLastAction[workerID] = actionElement->Attribute("id");
+
+                            // assign block to a worker
+                            if (actionSrc->workerID1.empty()) {
+                                actionSrc->workerID1 = workerID;
+                                vworld->linkBlocks(actionSrc, workerBlock, nullptr);
+                            } else if (actionSrc->workerID2.empty() && actionSrc->workerID1 != workerID) {
+                                actionSrc->workerID2 = workerID;
+                                vworld->linkBlocks(actionSrc, workerBlock, nullptr);
+                            }
+                            actionSrc->mapWorkerWithActions(workerNumID, actionElement);
+//                }
+                            vworld->linkBlocks(actionSrc, actionTgt, actionElement);
+                        }
+
+//                cout<<"block is "<<actionSource<<" and is the :::::station "<<stationFullID<<" linked?? ==>"<<endl;
+                        if (actionSrc->interfaceMap.find(stationFullID) == actionSrc->interfaceMap.end()) {
+                            // not found
+//                    cout<<"NO"<<endl;
+                            stationBlock = vworld->findBlockByName(stationFullID);
+                            vworld->linkBlocks(actionSrc, stationBlock, nullptr);
+                            if (!vcellID.empty())
+                                stationBlock->vcellID = vcellID;
+                        } else {
+                            // found
+                        }
+
+                    }
+                }
+                actNode = actNode->NextSibling("action");
+            }
+            // for vcell, alternate between station and robot
+            if (!vcellID.empty()) {
+                if (strcmp(stationElement->Value(), "station") == 0) {
+                    robotAction = true;
+//                cout<<"next sibling is robot"<<endl;
+                    stationNode = stationNode->NextSibling("robot");
+                } else {
+                    robotAction = false;
+//                cout<<"next sibling is station >>>>> "<<stationElement->Value()<<endl;
+                    stationNode = stationNode->NextSibling("station");
+                }
+            }
+                // for end of line, cycle between station and machine if it exists
+            else {
+                stationNode = stationNode->NextSibling("station");
+//                cout<<"outside machine"<<endl;
+                if (stationNode == nullptr) {
+//                    cout<<"inside machine"<<endl;
+                    stationNode = stationNode2->NextSibling("machine");
+//                    cout<<stationNode<<endl;
+                    machineAction = true;
+                }
+            }
+        }
+    }
+
+    void VcellsSimulator::parseLinks() {
+        VcellsWorld *vworld = VcellsWorld::getWorld();
+        TiXmlNode *vcellNode = xmlScenarioTag->FirstChild("vcell");
+        TiXmlNode *vcellNode2 = xmlScenarioTag->FirstChild("vcell");
+        TiXmlNode *stationNode = nullptr, *eolNode = nullptr;
+
+        TiXmlElement *settingsElement = xmlSettingsTag->ToElement();
+        TiXmlElement *productElement = xmlProductTag->ToElement();
+        TiXmlElement *lineElement = xmlLineTag->ToElement();
+
+        string lineEmpty = settingsElement->Attribute("lineEmpty");
+
+        if (lineEmpty == "false") {
+            world->isLineEmpty = false;
+        }
+
+        world->url = url;
+        world->range = range;
+        world->speed = stoi(speed); // assign the speed of the simulation
+        world->simTarget = simTarget; // $#50
+        world->rangeDelta = rangeDelta;
+        world->deltaEnabled = deltaEnabled == "true";
+
+        TiXmlNode *deltaChildNode = deltaNode->FirstChild("action");
+
+        while (deltaChildNode) {
+            TiXmlElement *deltaChildElement = deltaChildNode->ToElement();
+            string actionName = deltaChildElement->Attribute("name");
+            float dv = stof(deltaChildElement->Attribute("value"));
+
+            world->deltaMap[actionName] = dv;
+            deltaChildNode = deltaChildNode->NextSibling("action");
+        }
+
+        world->outputPath = outputPath;
+        world->outputFileName = outputFileName;
+
+        world->maxParts = stoi(productElement->Attribute("dailyVolume"));
+        world->maxShiftHours = stoi(lineElement->Attribute("shiftDuration"));
+        //$#66
+        if(!colorsMap.empty())
+            world->colorsMap.insert(colorsMap.begin(), colorsMap.end());
+
+
+
+        while (vcellNode) {
+
+            vcellNode2 = vcellNode;
+
+            TiXmlElement *vcellElement = vcellNode->ToElement();
+            string vcellID = vcellElement->Attribute("id");
+
+            stationNode = vcellNode->FirstChild("station");
+            parseStations(stationNode, vworld, vcellID);
+
+            vcellNode = vcellNode->NextSibling("vcell");
+        }
+
+//    stationNode = vcellNode2->NextSibling("station");
+        eolNode = vcellNode2->NextSibling("eol");
+
+        while (eolNode) {
+            stationNode = eolNode->FirstChild("station");
+            parseStations(stationNode, vworld);
+
+            eolNode = eolNode->NextSibling("eol");
+        }
+
+    }
+
+} // Vcells namespace
