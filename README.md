@@ -119,7 +119,7 @@ The major programming languages, frameworks/libraries used to bootstrap this pro
 <!-- GETTING STARTED -->
 ## Related Papers
 
-- ### **Swarm Intelligence-Based Framework for Optimized Assembly Line Design: Enhancing Efficiency and Productivity in the Automotive Industry**.
+- ### **Swarm Intelligence-Based Framework for Accelerated and Optimized Assembly Line Design: Enhancing Efficiency and Productivity in the Automotive Industry**.
     El Houd, A., Benoit, P., Painvin L., Bourgeois, J. (2023).  Under submission process. 
    
 
