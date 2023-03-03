@@ -82,7 +82,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<a href="https://github.com/othneildrew/Best-README-Template">
+        <img src="./docs/imgs/amdo_app_tool.PNG" alt="Logo" >
+      </a>
 
 AMDO is an end-to-end framework that helps Manufacturing Architects and Managers to design an assembly line efficiently stating from a well defined product.  This tool  allows manufacturers to quickly and easily explore different assembly lines and identify the most efficient option. The tool also provides detailed analytics and visualizations to help manufacturers understand the impact of different task/workstation assignments on assembly time, productivity, and cost.
 
